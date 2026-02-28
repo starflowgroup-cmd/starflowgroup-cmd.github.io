@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+
+# Create complete index.html with full-width logo, slideshow, and glowing nav
+
+index_html = '''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,40 +11,319 @@
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background: #0a1628; color: #fff; }
-        .logo-container { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #0a1628 0%, #1e3c72 100%); }
-        .logo-container img { max-width: 350px; width: 100%; height: auto; }
-        nav { background: #1e3c72; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
-        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 14px; padding: 8px 15px; border-radius: 20px; transition: all 0.3s; }
-        nav a:hover, nav a.active { background: #ffd700; color: #0a1628; }
-        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
-        .hero h1 { font-size: 36px; margin-bottom: 15px; }
-        .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 30px; }
-        .btn { display: inline-block; padding: 15px 35px; background: #ffd700; color: #0a1628; text-decoration: none; border-radius: 30px; font-weight: bold; margin: 10px; transition: transform 0.3s; }
-        .btn:hover { transform: scale(1.05); }
-        .btn-whatsapp { background: #25d366; color: #fff; }
+        
+        /* FULL WIDTH LOGO */
+        .logo-container { 
+            width: 100%;
+            background: linear-gradient(180deg, #0a1628 0%, #1e3c72 50%, #0a1628 100%);
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(74,144,226,0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .logo-container img { 
+            width: 95%;
+            max-width: 800px;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(74, 144, 226, 0.8)) brightness(1.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* GLOWING NAVIGATION */
+        nav { 
+            background: linear-gradient(90deg, #1e3c72, #2a5298, #1e3c72); 
+            padding: 15px; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }
+        nav a { 
+            color: #fff; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-size: 14px; 
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            transition: all 0.3s;
+            position: relative;
+            display: inline-block;
+        }
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #ffd700);
+            border-radius: 25px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+            filter: blur(8px);
+        }
+        nav a:hover::before,
+        nav a.active::before {
+            opacity: 0.8;
+            animation: navGlow 2s infinite;
+        }
+        @keyframes navGlow {
+            0%, 100% { filter: blur(8px) brightness(1); }
+            50% { filter: blur(12px) brightness(1.3); }
+        }
+        nav a:hover,
+        nav a.active {
+            background: rgba(255,215,0,0.2);
+            color: #ffd700;
+            transform: translateY(-2px);
+        }
+        
+        /* SLIDESHOW */
+        .slideshow-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .slideshow {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 100%;
+            height: 400px;
+            position: relative;
+        }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .slide-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 40px;
+            text-align: center;
+        }
+        .slide-text h2 {
+            font-size: 32px;
+            color: #ffd700;
+            margin-bottom: 10px;
+        }
+        .slide-text p {
+            font-size: 18px;
+        }
+        .slideshow-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        .slideshow-nav button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .slideshow-nav button.active {
+            background: #ffd700;
+            border-color: #ffd700;
+            box-shadow: 0 0 10px #ffd700;
+        }
+        .slideshow-arrows {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            pointer-events: none;
+        }
+        .slideshow-arrows button {
+            background: rgba(0,0,0,0.5);
+            border: 2px solid #ffd700;
+            color: #ffd700;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s;
+            pointer-events: all;
+        }
+        .slideshow-arrows button:hover {
+            background: #ffd700;
+            color: #0a1628;
+            box-shadow: 0 0 20px #ffd700;
+        }
+        
+        /* SERVICES */
         .services { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; color: #ffd700; }
-        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
-        .category-card { background: rgba(255,255,255,0.05); border: 2px solid #4a90e2; border-radius: 15px; padding: 35px 25px; text-align: center; transition: all 0.3s; cursor: pointer; text-decoration: none; color: #fff; display: block; }
-        .category-card:hover { border-color: #ffd700; box-shadow: 0 0 30px rgba(255,215,0,0.3); transform: translateY(-5px); }
-        .category-card i { font-size: 45px; color: #4a90e2; margin-bottom: 20px; }
-        .category-card:hover i { color: #ffd700; }
-        .category-card h3 { font-size: 20px; margin-bottom: 10px; }
+        .section-title { text-align: center; font-size: 36px; margin-bottom: 40px; color: #ffd700; }
+        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .category-card { 
+            background: rgba(255,255,255,0.05); 
+            border: 2px solid #4a90e2; 
+            border-radius: 15px; 
+            padding: 35px 25px; 
+            text-align: center; 
+            transition: all 0.3s; 
+            cursor: pointer; 
+            text-decoration: none; 
+            color: #fff; 
+            display: block;
+            position: relative;
+        }
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #ffd700);
+            border-radius: 15px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+            filter: blur(10px);
+        }
+        .category-card:hover::before {
+            opacity: 0.7;
+            animation: cardGlow 2s infinite;
+        }
+        @keyframes cardGlow {
+            0%, 100% { filter: blur(10px) brightness(1); }
+            50% { filter: blur(15px) brightness(1.3); }
+        }
+        .category-card:hover { 
+            border-color: #ffd700; 
+            transform: translateY(-5px);
+        }
+        .category-card i { font-size: 45px; color: #4a90e2; margin-bottom: 20px; transition: all 0.3s; }
+        .category-card:hover i { color: #ffd700; transform: scale(1.1); }
+        .category-card h3 { font-size: 22px; margin-bottom: 10px; }
         .category-card p { font-size: 14px; opacity: 0.8; line-height: 1.5; }
-        .gallery-section { padding: 40px 20px; background: rgba(0,0,0,0.2); }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
-        .gallery-item { aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #4a90e2; cursor: pointer; transition: all 0.3s; }
-        .gallery-item:hover { border-color: #ffd700; transform: scale(1.05); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .contact-bar { background: #1e3c72; padding: 30px 20px; text-align: center; }
-        .contact-bar a { color: #fff; text-decoration: none; margin: 0 20px; font-size: 16px; display: inline-block; margin-bottom: 10px; }
+        
+        /* CONTACT */
+        .contact-bar { background: #1e3c72; padding: 40px 20px; text-align: center; }
+        .contact-bar a { color: #fff; text-decoration: none; margin: 0 20px; font-size: 18px; display: inline-block; margin-bottom: 10px; transition: all 0.3s; }
+        .contact-bar a:hover { color: #ffd700; transform: scale(1.05); }
         .contact-bar i { color: #ffd700; margin-right: 8px; }
-        footer { text-align: center; padding: 25px; background: #0a1628; font-size: 14px; opacity: 0.8; }
-        @media (max-width: 768px) { .hero h1 { font-size: 28px; } nav a { margin: 5px; font-size: 12px; padding: 6px 12px; } .logo-container img { max-width: 280px; } }
+        
+        footer { text-align: center; padding: 30px; background: #0a1628; font-size: 14px; opacity: 0.8; }
+        
+        /* ARISE CHATBOT */
+        .arise-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        .arise-button { 
+            width: 60px; 
+            height: 60px; 
+            border-radius: 50%; 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            border: none; 
+            cursor: pointer; 
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.5); 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            transition: all 0.3s;
+            position: relative;
+        }
+        .arise-button::before {
+            content: '';
+            position: absolute;
+            top: -3px; left: -3px; right: -3px; bottom: -3px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #ffd700);
+            border-radius: 50%;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+            filter: blur(10px);
+        }
+        .arise-button:hover::before { opacity: 0.8; animation: botGlow 2s infinite; }
+        @keyframes botGlow {
+            0%, 100% { filter: blur(10px) brightness(1); }
+            50% { filter: blur(15px) brightness(1.3); }
+        }
+        .arise-button:hover { transform: scale(1.1); }
+        .arise-button i { font-size: 28px; color: #fff; }
+        .arise-chat { 
+            position: absolute; 
+            bottom: 80px; 
+            right: 0; 
+            width: 350px; 
+            height: 500px; 
+            background: #fff; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3); 
+            display: none; 
+            flex-direction: column; 
+            overflow: hidden;
+            border: 3px solid #667eea;
+        }
+        .arise-chat.active { display: flex; }
+        .arise-header { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: #fff; 
+            padding: 20px; 
+            text-align: center;
+            position: relative;
+        }
+        .arise-header h3 { margin: 0; font-size: 18px; }
+        .arise-header p { margin: 5px 0 0; font-size: 12px; opacity: 0.9; }
+        .arise-close { 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            background: none; 
+            border: none; 
+            color: #fff; 
+            font-size: 24px; 
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .arise-close:hover { color: #ffd700; transform: scale(1.2); }
+        .arise-messages { flex: 1; overflow-y: auto; padding: 20px; background: #f5f5f5; }
+        .arise-message { margin-bottom: 15px; max-width: 80%; padding: 12px 15px; border-radius: 15px; font-size: 14px; line-height: 1.4; }
+        .arise-message.bot { background: #667eea; color: #fff; margin-right: auto; }
+        .arise-message.user { background: #25d366; color: #fff; margin-left: auto; text-align: right; }
+        .arise-input-area { padding: 15px; background: #fff; border-top: 1px solid #eee; display: flex; gap: 10px; }
+        .arise-input { flex: 1; padding: 12px 15px; border: 2px solid #ddd; border-radius: 25px; outline: none; font-size: 14px; }
+        .arise-input:focus { border-color: #667eea; }
+        .arise-send { width: 45px; height: 45px; border-radius: 50%; background: #667eea; border: none; color: #fff; cursor: pointer; transition: all 0.3s; }
+        .arise-send:hover { background: #764ba2; transform: scale(1.1); }
+        
+        @media (max-width: 768px) { 
+            .logo-container img { width: 100%; }
+            .slide { height: 250px; }
+            .slide-text h2 { font-size: 24px; }
+            nav a { margin: 5px; font-size: 12px; padding: 8px 12px; }
+            .arise-chat { width: 300px; height: 400px; right: -10px; }
+        }
     </style>
 </head>
 <body>
-    <div class="logo-container"><img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group"></div>
+    <!-- FULL WIDTH LOGO -->
+    <div class="logo-container">
+        <img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group">
+    </div>
+    
+    <!-- GLOWING NAVIGATION -->
     <nav>
         <a href="index.html" class="active">Home</a>
         <a href="construction.html">Construction</a>
@@ -49,36 +331,285 @@
         <a href="aluminum.html">Aluminum</a>
         <a href="plumbing.html">Plumbing</a>
     </nav>
-    <section class="hero">
-        <h1>Welcome to StarFlow Group</h1>
-        <p>Professional Property & Technology Solutions in Gauteng</p>
-        <a href="https://wa.me/27744872602" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
-        <a href="tel:+27744872602" class="btn"><i class="fas fa-phone"></i> Call Us</a>
-    </section>
+    
+    <!-- SLIDESHOW -->
+    <div class="slideshow-container">
+        <div class="slideshow" id="slideshow">
+            <div class="slide">
+                <img src="IMG-20260222-WA0054.jpg" alt="Work">
+                <div class="slide-text">
+                    <h2>Quality Construction</h2>
+                    <p>Building your dreams with excellence</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="IMG-20260222-WA0055.jpg" alt="Work">
+                <div class="slide-text">
+                    <h2>Expert Waterproofing</h2>
+                    <p>Protecting your property from water damage</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="IMG-20260222-WA0056.jpg" alt="Work">
+                <div class="slide-text">
+                    <h2>Beautiful Renovations</h2>
+                    <p>Transforming spaces into masterpieces</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="IMG-20260222-WA0057.jpg" alt="Work">
+                <div class="slide-text">
+                    <h2>Professional Service</h2>
+                    <p>24/7 support for all your needs</p>
+                </div>
+            </div>
+        </div>
+        <div class="slideshow-arrows">
+            <button onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+            <button onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="slideshow-nav">
+            <button class="active" onclick="goToSlide(0)"></button>
+            <button onclick="goToSlide(1)"></button>
+            <button onclick="goToSlide(2)"></button>
+            <button onclick="goToSlide(3)"></button>
+        </div>
+    </div>
+    
+    <!-- SERVICES -->
     <section class="services">
         <h2 class="section-title">Our Services</h2>
         <div class="categories">
-            <a href="construction.html" class="category-card"><i class="fas fa-hard-hat"></i><h3>Construction</h3><p>Building, renovations, tiling, painting & ceiling installation</p></a>
-            <a href="waterproofing.html" class="category-card"><i class="fas fa-shield-alt"></i><h3>Waterproofing</h3><p>Roof waterproofing, leak repairs & torch-on solutions</p></a>
-            <a href="aluminum.html" class="category-card"><i class="fas fa-border-all"></i><h3>Aluminum & Glass</h3><p>Windows, doors, showers, balustrades & shopfronts</p></a>
-            <a href="plumbing.html" class="category-card"><i class="fas fa-faucet"></i><h3>Plumbing & Electrical</h3><p>24/7 emergency repairs, geysers, CCTV & security</p></a>
+            <a href="construction.html" class="category-card">
+                <i class="fas fa-hard-hat"></i>
+                <h3>Construction</h3>
+                <p>Building, renovations, tiling, painting & ceiling installation</p>
+            </a>
+            <a href="waterproofing.html" class="category-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Waterproofing</h3>
+                <p>Roof waterproofing, leak repairs & torch-on solutions</p>
+            </a>
+            <a href="aluminum.html" class="category-card">
+                <i class="fas fa-border-all"></i>
+                <h3>Aluminum & Glass</h3>
+                <p>Windows, doors, showers, balustrades & shopfronts</p>
+            </a>
+            <a href="plumbing.html" class="category-card">
+                <i class="fas fa-faucet"></i>
+                <h3>Plumbing & Electrical</h3>
+                <p>24/7 emergency repairs, geysers, CCTV & security</p>
+            </a>
         </div>
     </section>
-    <section class="gallery-section">
-        <h2 class="section-title">Our Work</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="IMG-20260222-WA0054.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0055.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0056.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0057.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0059.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0060.jpg" alt="Work"></div>
-        </div>
-    </section>
+    
+    <!-- CONTACT -->
     <div class="contact-bar">
         <a href="https://wa.me/27744872602" target="_blank"><i class="fab fa-whatsapp"></i> +27 74 487 2602</a>
         <a href="mailto:info@starflowgroup.co.za"><i class="fas fa-envelope"></i> info@starflowgroup.co.za</a>
+        <a href="https://starflowgroup-cmd.github.io"><i class="fas fa-globe"></i> www.starflowgroup.co.za</a>
     </div>
-    <footer><p>&copy; 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p></footer>
+    
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p>
+    </footer>
+    
+    <!-- ARISE CHATBOT -->
+    <div class="arise-container">
+        <div class="arise-chat" id="ariseChat">
+            <div class="arise-header">
+                <button class="arise-close" onclick="toggleArise()">&times;</button>
+                <h3><i class="fas fa-robot"></i> Arise Assistant</h3>
+                <p>StarFlow Group AI - Here to help 24/7</p>
+            </div>
+            <div class="arise-messages" id="ariseMessages">
+                <div class="arise-message bot">
+                    Hello! I'm Arise, your StarFlow assistant. 🌟<br><br>
+                    I can help you with:<br>
+                    • Service information<br>
+                    • Free quotes<br>
+                    • Emergency support<br><br>
+                    What's your name?
+                </div>
+            </div>
+            <div class="arise-input-area">
+                <input type="text" class="arise-input" id="ariseInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+                <button class="arise-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="arise-button" onclick="toggleArise()"><i class="fas fa-robot"></i></button>
+    </div>
+    
+    <script>
+        // SLIDESHOW
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const dots = document.querySelectorAll('.slideshow-nav button');
+        
+        function updateSlide() {
+            document.getElementById('slideshow').style.transform = `translateX(-${currentSlide * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+        
+        function changeSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlide();
+        }
+        
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlide();
+        }
+        
+        // Auto-advance every 4 seconds
+        setInterval(() => changeSlide(1), 4000);
+        
+        // ARISE CHATBOT
+        let clientData = { name: '', phone: '', email: '', service: '', stage: 'name' };
+        let conversationLog = [];
+        
+        const autoCorrect = {
+            'helo': 'hello', 'hllo': 'hello', 'heloo': 'hello',
+            'plumbing': 'plumbing', 'plumming': 'plumbing', 'plumbin': 'plumbing',
+            'construction': 'construction', 'constrution': 'construction',
+            'waterproofing': 'waterproofing', 'waterproofin': 'waterproofing',
+            'aluminum': 'aluminum', 'aluminium': 'aluminum', 'alumium': 'aluminum',
+            'emergency': 'emergency', 'emergncy': 'emergency',
+            'quote': 'quote', 'qoute': 'quote',
+            'price': 'price', 'prce': 'price', 'prize': 'price',
+            'help': 'help', 'hlp': 'help',
+            'thanks': 'thank you', 'thx': 'thank you', 'thanx': 'thank you'
+        };
+        
+        const serviceInfo = {
+            'construction': 'Our construction services include building, renovations, tiling, painting, drywall, and ceiling installation. We work across Gauteng.',
+            'waterproofing': 'We offer roof waterproofing, basement sealing, balcony waterproofing, leak detection, and torch-on membrane application. 10-year guarantee!',
+            'aluminum': 'We manufacture and install aluminum windows, doors, frameless showers, glass balustrades, and shopfronts. Custom sizes available.',
+            'plumbing': '24/7 emergency plumbing, geyser services, drain cleaning, electrical repairs, CCTV installation, and security systems.',
+            'emergency': 'For emergencies, call or WhatsApp us immediately at +27 74 487 2602. We\'re available 24/7!',
+            'price': 'Prices vary by project. We offer FREE quotes! Would you like to provide your details for a callback?',
+            'quote': 'I\'d be happy to arrange a free quote! May I have your phone number and which service you need?',
+            'hours': 'We operate Monday-Saturday 8AM-6PM, with 24/7 emergency services available.',
+            'location': 'We serve Johannesburg, Pretoria, Sandton, and all surrounding areas in Gauteng.',
+            'contact': 'Reach us at: WhatsApp +27 74 487 2602, Email info@starflowgroup.co.za'
+        };
+        
+        function toggleArise() {
+            const chat = document.getElementById('ariseChat');
+            chat.classList.toggle('active');
+            if (chat.classList.contains('active')) {
+                document.getElementById('ariseInput').focus();
+            }
+        }
+        
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+        
+        function correctSpelling(text) {
+            let words = text.toLowerCase().split(' ');
+            words = words.map(word => autoCorrect[word] || word);
+            return words.join(' ');
+        }
+        
+        function addMessage(text, isUser = false) {
+            const messages = document.getElementById('ariseMessages');
+            const div = document.createElement('div');
+            div.className = 'arise-message ' + (isUser ? 'user' : 'bot');
+            div.innerHTML = text;
+            messages.appendChild(div);
+            messages.scrollTop = messages.scrollHeight;
+            conversationLog.push({
+                timestamp: new Date().toISOString(),
+                sender: isUser ? 'client' : 'arise',
+                message: text
+            });
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('ariseInput');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            const correctedText = correctSpelling(text);
+            addMessage(text, true);
+            input.value = '';
+            
+            setTimeout(() => processResponse(correctedText), 500);
+        }
+        
+        function processResponse(text) {
+            let response = '';
+            const lowerText = text.toLowerCase();
+            
+            if (clientData.stage === 'name') {
+                clientData.name = text;
+                clientData.stage = 'phone';
+                response = `Nice to meet you, ${text}! 📱 What's your phone number?`;
+            } else if (clientData.stage === 'phone') {
+                const phoneRegex = /[0-9]{10,}/;
+                if (phoneRegex.test(text.replace(/\s/g, ''))) {
+                    clientData.phone = text;
+                    clientData.stage = 'service';
+                    response = `Great! Which service do you need?<br><br>1. Construction<br>2. Waterproofing<br>3. Aluminum & Glass<br>4. Plumbing & Electrical<br>5. Emergency`;
+                } else {
+                    response = 'Please enter a valid phone number (at least 10 digits):';
+                }
+            } else if (clientData.stage === 'service') {
+                clientData.service = text;
+                clientData.stage = 'complete';
+                response = `Perfect! ✅<br><br>Thank you ${clientData.name}! We've captured your details:<br>• Phone: ${clientData.phone}<br>• Service: ${text}<br><br>A consultant will contact you within 30 minutes!<br><br>Is there anything else I can help with?`;
+                saveClientData();
+            } else {
+                let matched = false;
+                for (let key in serviceInfo) {
+                    if (lowerText.includes(key)) {
+                        response = serviceInfo[key];
+                        matched = true;
+                        break;
+                    }
+                }
+                
+                if (!matched) {
+                    if (lowerText.includes('hello') || lowerText.includes('hi')) {
+                        response = `Hello${clientData.name ? ' ' + clientData.name : ''}! How can I assist you today?`;
+                    } else if (lowerText.includes('bye') || lowerText.includes('goodbye')) {
+                        response = 'Goodbye! Have a great day! 👋';
+                    } else if (lowerText.includes('thank')) {
+                        response = 'You\'re welcome! 😊 Is there anything else you need?';
+                    } else {
+                        response = 'I can help with information about our construction, waterproofing, aluminum, or plumbing services. Or type "quote" for a free estimate!';
+                    }
+                }
+            }
+            
+            addMessage(response);
+        }
+        
+        function saveClientData() {
+            const leads = JSON.parse(localStorage.getItem('starflow_leads') || '[]');
+            leads.push({
+                ...clientData,
+                timestamp: new Date().toISOString(),
+                conversation: conversationLog
+            });
+            localStorage.setItem('starflow_leads', JSON.stringify(leads));
+        }
+    </script>
 </body>
-</html>
+</html>'''
+
+print("✅ INDEX.HTML COMPLETE")
+print("Features:")
+print("- Full-width glowing logo")
+print("- Auto-slideshow (4 seconds)")
+print("- Manual arrows + dots")
+print("- Glowing navigation")
+print("- Glowing category cards")
+print("- Arise chatbot with auto-correct")
+print("- Client data capture")
+print("- Mobile responsive")
