@@ -1,78 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Waterproofing | StarFlow Group</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #0a1628; color: #fff; }
-        .logo-container { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #0a1628 0%, #1e3c72 100%); }
-        .logo-container img { max-width: 300px; width: 100%; height: auto; }
-        nav { background: #1e3c72; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
-        nav a { color: #fff; text-decoration: none; margin: 0 12px; font-size: 14px; padding: 8px 15px; border-radius: 20px; transition: all 0.3s; }
-        nav a:hover, nav a.active { background: #ffd700; color: #0a1628; }
-        .page-header { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
-        .page-header i { font-size: 50px; color: #ffd700; margin-bottom: 20px; }
-        .page-header h1 { font-size: 32px; margin-bottom: 10px; }
-        .content { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-box { background: rgba(255,255,255,0.05); border: 2px solid #4a90e2; border-radius: 15px; padding: 30px; text-align: center; transition: all 0.3s; }
-        .service-box:hover { border-color: #ffd700; box-shadow: 0 0 25px rgba(255,215,0,0.2); }
-        .service-box i { font-size: 40px; color: #4a90e2; margin-bottom: 15px; }
-        .service-box:hover i { color: #ffd700; }
-        .service-box h3 { font-size: 20px; margin-bottom: 10px; color: #ffd700; }
-        .service-box p { font-size: 14px; opacity: 0.8; }
-        .gallery-section { padding: 40px 20px; background: rgba(0,0,0,0.2); margin-top: 40px; }
-        .section-title { text-align: center; font-size: 28px; margin-bottom: 30px; color: #ffd700; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto; }
-        .gallery-item { aspect-ratio: 4/3; overflow: hidden; border-radius: 10px; border: 2px solid #4a90e2; cursor: pointer; transition: all 0.3s; }
-        .gallery-item:hover { border-color: #ffd700; transform: scale(1.03); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .contact-section { background: #1e3c72; padding: 40px 20px; text-align: center; margin-top: 40px; }
-        .btn { display: inline-block; padding: 15px 35px; background: #ffd700; color: #0a1628; text-decoration: none; border-radius: 30px; font-weight: bold; margin: 10px; }
-        .btn-whatsapp { background: #25d366; color: #fff; }
-        footer { text-align: center; padding: 25px; background: #0a1628; font-size: 14px; opacity: 0.8; }
-        @media (max-width: 768px) { .page-header h1 { font-size: 24px; } .logo-container img { max-width: 250px; } }
-    </style>
-</head>
-<body>
-    <div class="logo-container"><a href="index.html"><img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group"></a></div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="construction.html">Construction</a>
-        <a href="waterproofing.html" class="active">Waterproofing</a>
-        <a href="aluminum.html">Aluminum</a>
-        <a href="plumbing.html">Plumbing</a>
-    </nav>
-    <div class="page-header"><i class="fas fa-shield-alt"></i><h1>Waterproofing & Roofing</h1></div>
-    <div class="content">
-        <div class="services-grid">
-            <div class="service-box"><i class="fas fa-home"></i><h3>Roof Waterproofing</h3><p>Complete roof sealing and protection</p></div>
-            <div class="service-box"><i class="fas fa-building"></i><h3>Basement Waterproofing</h3><p>Stop damp and water ingress</p></div>
-            <div class="service-box"><i class="fas fa-umbrella"></i><h3>Balcony Sealing</h3><p>Terrace and balcony waterproofing</p></div>
-            <div class="service-box"><i class="fas fa-tools"></i><h3>Roof Repairs</h3><p>Tile replacement and leak fixes</p></div>
-            <div class="service-box"><i class="fas fa-search"></i><h3>Leak Detection</h3><p>Find and fix water leaks</p></div>
-            <div class="service-box"><i class="fas fa-fire"></i><h3>Torch-on</h3><p>Professional membrane application</p></div>
-        </div>
-    </div>
-    <section class="gallery-section">
-        <h2 class="section-title">Our Waterproofing Work</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="IMG-20260222-WA0012.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0013.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0014.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0015.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0017.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0019.jpg" alt="Work"></div>
-        </div>
-    </section>
-    <div class="contact-section">
-        <h2 style="color: #ffd700; margin-bottom: 20px;">Get a Free Quote</h2>
-        <a href="https://wa.me/27744872602" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="tel:+27744872602" class="btn"><i class="fas fa-phone"></i> Call Now</a>
-    </div>
-    <footer><p>&copy; 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p></footer>
-</body>
-</html>
+
+# Create remaining 3 category pages
+
+# Waterproofing data
+waterproofing_cats = [
+    {"id": "roof", "name": "Roof Waterproofing", "icon": "fas fa-home", "items": ["Tile roof waterproofing", "Flat roof sealing", "Metal roof protection", "Ridge cap sealing", "Valley gutter waterproofing", "Chimney flashing", "Roof maintenance programs"]},
+    {"id": "basement", "name": "Basement & Structural", "icon": "fas fa-building", "items": ["Basement tanking", "Foundation waterproofing", "Retaining wall sealing", "Concrete crack injection", "Negative side waterproofing", "Sump pump installation", "Drainage systems"]},
+    {"id": "balcony", "name": "Balcony & Terrace", "icon": "fas fa-umbrella", "items": ["Balcony sealing", "Terrace waterproofing", "Patio protection", "Slip-resistant coatings", "Tile-on-tile systems", "Expansion joint treatment", "Parapet wall sealing"]},
+    {"id": "bathroom", "name": "Bathroom & Wet Areas", "icon": "fas fa-bath", "items": ["Shower waterproofing", "Bathroom floor sealing", "Wall damp proofing", "Tile bed waterproofing", "Pipe penetration sealing", "Shower recess waterproofing", "Mold-resistant coatings"]},
+    {"id": "leak", "name": "Leak Detection & Repair", "icon": "fas fa-search", "items": ["Electronic leak detection", "Thermal imaging surveys", "Moisture meter testing", "Core sample analysis", "Leak source identification", "Emergency leak repairs", "Insurance assessments"]},
+    {"id": "specialized", "name": "Specialized Systems", "icon": "fas fa-fire", "items": ["Torch-on membrane", "Liquid applied systems", "Bituminous coatings", "Polyurethane membranes", "Cementitious waterproofing", "EPDM rubber systems", "Green roof systems"]}
+]
+
+waterproofing_html = create_sidebar_page(
+    "Waterproofing & Roofing",
+    "fas fa-shield-alt",
+    "waterproofing",
+    waterproofing_cats,
+    ["IMG-20260222-WA0012.jpg", "IMG-20260222-WA0013.jpg", "IMG-20260222-WA0014.jpg", "IMG-20260222-WA0015.jpg", "IMG-20260222-WA0017.jpg", "IMG-20260222-WA0019.jpg"]
+)
+
+# Aluminum data
+aluminum_cats = [
+    {"id": "windows", "name": "Aluminum Windows", "icon": "fas fa-window-maximize", "items": ["Sliding windows", "Casement windows", "Awning windows", "Fixed picture windows", "Tilt & turn windows", "Double-glazed options", "Custom sizes & colors"]},
+    {"id": "doors", "name": "Aluminum Doors", "icon": "fas fa-door-open", "items": ["Sliding patio doors", "Folding/stacker doors", "Hinged doors", "French doors", "Security doors", "Shopfront doors", "Automatic door systems"]},
+    {"id": "showers", "name": "Frameless Glass", "icon": "fas fa-shower", "items": ["Frameless shower doors", "Glass shower enclosures", "Sliding shower screens", "Hinged shower doors", "Walk-in shower panels", "Toughened safety glass", "Frosted/privacy glass"]},
+    {"id": "balustrades", "name": "Glass Balustrades", "icon": "fas fa-grip-lines-vertical", "items": ["Staircase balustrades", "Balcony railings", "Pool fencing", "Deck railings", "Frameless glass rails", "Semi-frameless options", "Stainless steel fittings"]},
+    {"id": "shopfronts", "name": "Shopfronts & Commercial", "icon": "fas fa-store", "items": ["Retail shopfronts", "Office partitions", "Display windows", "Entrance canopies", "Revolving doors", "Automatic sliders", "Security shutters"]},
+    {"id": "custom", "name": "Custom Glass", "icon": "fas fa-th-large", "items": ["Kitchen splashbacks", "Mirror installations", "Glass tabletops", "Partition walls", "Skylights", "Glass signage", "Decorative glass"]}
+]
+
+aluminum_html = create_sidebar_page(
+    "Aluminum & Glass",
+    "fas fa-border-all",
+    "aluminum",
+    aluminum_cats,
+    ["IMG-20260222-WA0020.jpg", "IMG-20260222-WA0048.jpg", "IMG-20260222-WA0049.jpg", "IMG-20260222-WA0050.jpg", "IMG-20260222-WA0051.jpg", "IMG-20260222-WA0052.jpg"]
+)
+
+# Plumbing data
+plumbing_cats = [
+    {"id": "plumbing", "name": "General Plumbing", "icon": "fas fa-faucet", "items": ["Leak detection & repair", "Burst pipe repairs", "Tap & mixer repairs", "Toilet repairs & installation", "Sink & basin installation", "Water pressure issues", "Pipe replacement"]},
+    {"id": "geyser", "name": "Geyser Services", "icon": "fas fa-fire", "items": ["Geyser installation", "Geyser repairs", "Element replacement", "Thermostat repairs", "Solar geyser conversions", "Heat pump installation", "Geyser maintenance"]},
+    {"id": "drainage", "name": "Drainage", "icon": "fas fa-broom", "items": ["Blocked drain clearing", "High-pressure jetting", "Drain camera inspection", "Drain repairs", "Sewer line repairs", "Storm water drainage", "Grease trap cleaning"]},
+    {"id": "electrical", "name": "Electrical Services", "icon": "fas fa-bolt", "items": ["Electrical repairs", "Wiring & rewiring", "Circuit breaker repairs", "Lighting installation", "Power point installation", "Electrical compliance", "Emergency electrical"]},
+    {"id": "cctv", "name": "CCTV & Security", "icon": "fas fa-video", "items": ["CCTV camera installation", "IP camera systems", "Remote viewing setup", "Night vision cameras", "DVR/NVR installation", "Camera maintenance", "Security assessments"]},
+    {"id": "alarms", "name": "Alarm Systems", "icon": "fas fa-shield-alt", "items": ["Alarm installation", "Motion sensors", "Door/window sensors", "24/7 monitoring setup", "Electric fencing", "Intercom systems", "Access control"]}
+]
+
+plumbing_html = create_sidebar_page(
+    "Plumbing & Electrical",
+    "fas fa-faucet",
+    "plumbing",
+    plumbing_cats,
+    ["cd68c37c-4aa2-4ac8-9bf8-36201af75b7f.jpg", "ezgif-1955095e08db5333.png", "ezgif-20eb2ee4fe024711.png", "IMG-20260222-WA0054.jpg", "IMG-20260222-WA0055.jpg", "IMG-20260222-WA0056.jpg"]
+)
+
+print("✅ ALL 5 PAGES COMPLETE:")
+print("1. index.html - Homepage with slideshow")
+print("2. construction.html - Sidebar layout")
+print("3. waterproofing.html - Sidebar layout")
+print("4. aluminum.html - Sidebar layout")
+print("5. plumbing.html - Sidebar layout")
+print("\nAll features:")
+print("- Full-width glowing logo")
+print("- Glowing navigation (all pages)")
+print("- Sidebar layout (category pages)")
+print("- Glowing borders on categories")
+print("- Photo galleries")
+print("- Arise chatbot (homepage)")
+print("- Auto-correct spelling")
+print("- Client data capture")
+print("- Mobile responsive")
