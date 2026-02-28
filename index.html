@@ -3,474 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0a1628">
     <title>StarFlow Group | Professional Property & Technology Solutions</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #16213e 100%); color: #ffffff; overflow-x: hidden; }
-        header { background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid rgba(0, 212, 255, 0.3); }
-        .header-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 15px; }
-        .logo img { height: 60px; width: auto; }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; font-weight: 700; color: #00d4ff; text-shadow: 0 0 20px rgba(0, 212, 255, 0.5); }
-        nav ul { display: flex; list-style: none; gap: 30px; }
-        nav a { color: #ffffff; text-decoration: none; font-weight: 600; transition: all 0.3s ease; position: relative; }
-        nav a:hover { color: #00d4ff; }
-        nav a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: #00d4ff; transition: width 0.3s ease; }
-        nav a:hover::after { width: 100%; }
-        .hero { margin-top: 90px; padding: 80px 20px; text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 0, 0, 0) 50%); position: relative; overflow: hidden; }
-        .hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%); animation: pulse 4s ease-in-out infinite; }
-        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 0.8; } }
-        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 3rem; margin-bottom: 20px; color: #00d4ff; text-shadow: 0 0 30px rgba(0, 212, 255, 0.5); }
-        .hero p { font-size: 1.2rem; color: #c0d4e8; margin-bottom: 30px; line-height: 1.6; }
-        .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
-        .btn { padding: 15px 40px; border-radius: 30px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 10px; }
-        .btn-primary { background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); color: #000000; box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4); }
-        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0, 212, 255, 0.6); }
-        .btn-secondary { background: rgba(255, 255, 255, 0.1); border: 2px solid #00d4ff; color: #00d4ff; }
-        .btn-secondary:hover { background: rgba(0, 212, 255, 0.2); transform: translateY(-3px); }
-        .categories { padding: 80px 20px; max-width: 1200px; margin: 0 auto; }
-        .section-title { text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2.5rem; margin-bottom: 50px; color: #00d4ff; }
-        .category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .category-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 20px; padding: 40px 30px; text-align: center; transition: all 0.3s ease; position: relative; overflow: hidden; cursor: pointer; text-decoration: none; color: #ffffff; display: block; }
-        .category-card::before { content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, #00d4ff, #0099cc, #00d4ff); border-radius: 20px; opacity: 0; z-index: -1; transition: opacity 0.3s ease; animation: glow 3s linear infinite; background-size: 200% 200%; }
-        @keyframes glow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
-        .category-card:hover::before { opacity: 1; }
-        .category-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3); border-color: transparent; }
-        .category-icon { font-size: 3.5rem; margin-bottom: 20px; display: block; }
-        .category-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; margin-bottom: 15px; color: #00d4ff; }
-        .category-card p { color: #c0d4e8; line-height: 1.6; font-size: 0.95rem; }
-        .category-services { margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(0, 212, 255, 0.2); font-size: 0.85rem; color: #888; }
-        .work-gallery { padding: 80px 20px; background: rgba(0, 0, 0, 0.2); }
-        .gallery-container { max-width: 1200px; margin: 0 auto; }
-        .slideshow { position: relative; max-width: 800px; margin: 0 auto; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5); }
-        .slide { display: none; width: 100%; height: 400px; object-fit: cover; }
-        .slide.active { display: block; }
-        .slideshow-controls { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; }
-        .slide-dot { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); cursor: pointer; transition: all 0.3s ease; }
-        .slide-dot.active { background: #00d4ff; box-shadow: 0 0 10px rgba(0, 212, 255, 0.8); }
-        .contact { padding: 80px 20px; text-align: center; }
-        .contact-container { max-width: 800px; margin: 0 auto; }
-        .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-top: 40px; }
-        .contact-card { background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 15px; padding: 30px; transition: all 0.3s ease; }
-        .contact-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2); }
-        .contact-icon { font-size: 2.5rem; margin-bottom: 15px; }
-        .contact-card h3 { color: #00d4ff; margin-bottom: 10px; }
-        .contact-card a { color: #ffffff; text-decoration: none; font-size: 1.1rem; transition: color 0.3s ease; }
-        .contact-card a:hover { color: #00d4ff; }
-        footer { background: rgba(0, 0, 0, 0.5); padding: 40px 20px; text-align: center; border-top: 2px solid rgba(0, 212, 255, 0.3); }
-        .footer-content { max-width: 1200px; margin: 0 auto; }
-        .social-links { display: flex; justify-content: center; gap: 20px; margin: 20px 0; }
-        .social-links a { width: 50px; height: 50px; border-radius: 50%; background: rgba(0, 212, 255, 0.1); border: 2px solid rgba(0, 212, 255, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; transition: all 0.3s ease; text-decoration: none; }
-        .social-links a:hover { background: rgba(0, 212, 255, 0.3); transform: translateY(-3px); }
-        .chatbot-widget { position: fixed; bottom: 20px; right: 20px; z-index: 9999; }
-        .chatbot-button { width: 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); border: 4px solid rgba(255, 255, 255, 0.2); color: #000000; font-size: 2rem; cursor: pointer; box-shadow: 0 5px 25px rgba(0, 212, 255, 0.5), 0 0 0 4px rgba(0, 212, 255, 0.2); transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; animation: pulse-glow 2s infinite; }
-        @keyframes pulse-glow { 0%, 100% { box-shadow: 0 5px 25px rgba(0, 212, 255, 0.5), 0 0 0 4px rgba(0, 212, 255, 0.2); } 50% { box-shadow: 0 8px 35px rgba(0, 212, 255, 0.7), 0 0 0 8px rgba(0, 212, 255, 0.1); } }
-        .chatbot-button:hover { transform: scale(1.1); }
-        .chatbot-notification { position: absolute; top: -5px; right: -5px; background: #ff3366; color: #ffffff; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: bold; animation: bounce 2s infinite; }
-        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
-        .chatbot-container { position: fixed; bottom: 100px; right: 20px; width: 400px; height: 650px; background: linear-gradient(180deg, #0a1628 0%, #0d1f3c 100%); border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 25px; box-shadow: 0 25px 70px rgba(0, 0, 0, 0.9); display: none; flex-direction: column; overflow: hidden; }
-        .chatbot-container.active { display: flex; }
-        .chatbot-header { background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; }
-        .chatbot-header-left { display: flex; align-items: center; gap: 12px; }
-        .chatbot-avatar { width: 45px; height: 45px; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; animation: pulse-avatar 2s infinite; }
-        @keyframes pulse-avatar { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.7); } 50% { box-shadow: 0 0 0 10px rgba(255,255,255,0); } }
-        .chatbot-header h3 { color: #000000; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; margin: 0; }
-        .chatbot-header p { color: #000000; font-size: 0.8rem; margin: 0; opacity: 0.8; }
-        .chatbot-controls { display: flex; gap: 10px; }
-        .chatbot-control-btn { background: rgba(255,255,255,0.3); border: none; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1rem; transition: all 0.3s ease; }
-        .chatbot-control-btn:hover { background: rgba(255,255,255,0.5); }
-        .chatbot-messages { flex: 1; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px; }
-        .chat-message { max-width: 85%; padding: 15px 18px; border-radius: 20px; font-size: 0.95rem; line-height: 1.5; animation: messagePop 0.3s ease; }
-        @keyframes messagePop { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
-        .chat-message.bot { background: rgba(0, 212, 255, 0.15); border: 1px solid rgba(0, 212, 255, 0.3); align-self: flex-start; border-bottom-left-radius: 5px; color: #c0d4e8; }
-        .chat-message.user { background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); color: #000000; align-self: flex-end; border-bottom-right-radius: 5px; font-weight: 600; }
-        .chat-message-time { font-size: 0.7rem; opacity: 0.6; margin-top: 5px; display: block; }
-        .typing-indicator { display: none; padding: 15px; background: rgba(0, 212, 255, 0.1); border-radius: 20px; border-bottom-left-radius: 5px; align-self: flex-start; margin-bottom: 10px; }
-        .typing-indicator.active { display: block; }
-        .typing-indicator span { display: inline-block; width: 8px; height: 8px; background: #00d4ff; border-radius: 50%; margin: 0 3px; animation: typing 1.4s infinite; }
-        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
-        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes typing { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-        .quick-replies { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px 20px; background: rgba(0,0,0,0.2); }
-        .quick-reply { background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 15px; padding: 8px 15px; font-size: 0.85rem; color: #00d4ff; cursor: pointer; transition: all 0.3s ease; }
-        .quick-reply:hover { background: rgba(0, 212, 255, 0.3); color: #ffffff; }
-        .chatbot-input-area { padding: 15px 20px; background: rgba(0, 0, 0, 0.3); border-top: 1px solid rgba(0, 212, 255, 0.2); }
-        .chatbot-input-wrapper { display: flex; gap: 10px; align-items: center; }
-        .chatbot-input { flex: 1; padding: 14px 20px; border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 25px; background: rgba(255, 255, 255, 0.05); color: #ffffff; font-size: 0.95rem; outline: none; }
-        .chatbot-input:focus { border-color: #00d4ff; box-shadow: 0 0 15px rgba(0, 212, 255, 0.3); }
-        .voice-input-btn { width: 45px; height: 45px; border-radius: 50%; background: rgba(0, 212, 255, 0.2); border: 2px solid #00d4ff; color: #00d4ff; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; animation: pulse-blue 2s infinite; }
-        @keyframes pulse-blue { 0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.7); } 50% { box-shadow: 0 0 0 10px rgba(0,212,255,0); } }
-        .voice-input-btn:hover { background: rgba(0, 212, 255, 0.4); transform: scale(1.1); }
-        .voice-input-btn.listening { background: #ff3366; border-color: #ff3366; color: #ffffff; animation: pulse-red 1s infinite; }
-        @keyframes pulse-red { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-        .send-btn { width: 45px; height: 45px; border-radius: 50%; background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); border: none; color: #000000; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 15px rgba(0, 212, 255, 0.4); }
-        .language-selector-chat { padding: 8px 12px; background: rgba(0, 212, 255, 0.1); border: 1px solid rgba(0, 212, 255, 0.3); border-radius: 15px; color: #00d4ff; font-size: 0.85rem; cursor: pointer; outline: none; }
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            nav ul { display: none; }
-            .chatbot-widget { bottom: 20px; right: auto; left: 20px; }
-            .chatbot-button { width: 60px; height: 60px; font-size: 1.5rem; }
-            .chatbot-container { width: calc(100% - 40px); height: calc(100% - 100px); bottom: 90px; right: auto; left: 20px; border-radius: 20px; }
-            .chatbot-header h3 { font-size: 1rem; }
-            .category-grid { grid-template-columns: 1fr; }
-        }
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .chatbot-container { width: 380px; height: 600px; }
-        }
+        body { font-family: Arial, sans-serif; background: #0a1628; color: #fff; }
+        .logo-container { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #0a1628 0%, #1e3c72 100%); }
+        .logo-container img { max-width: 350px; width: 100%; height: auto; }
+        nav { background: #1e3c72; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        nav a { color: #fff; text-decoration: none; margin: 0 15px; font-size: 14px; padding: 8px 15px; border-radius: 20px; transition: all 0.3s; }
+        nav a:hover, nav a.active { background: #ffd700; color: #0a1628; }
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+        .hero h1 { font-size: 36px; margin-bottom: 15px; }
+        .hero p { font-size: 18px; opacity: 0.9; margin-bottom: 30px; }
+        .btn { display: inline-block; padding: 15px 35px; background: #ffd700; color: #0a1628; text-decoration: none; border-radius: 30px; font-weight: bold; margin: 10px; transition: transform 0.3s; }
+        .btn:hover { transform: scale(1.05); }
+        .btn-whatsapp { background: #25d366; color: #fff; }
+        .services { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 32px; margin-bottom: 40px; color: #ffd700; }
+        .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; }
+        .category-card { background: rgba(255,255,255,0.05); border: 2px solid #4a90e2; border-radius: 15px; padding: 35px 25px; text-align: center; transition: all 0.3s; cursor: pointer; text-decoration: none; color: #fff; display: block; }
+        .category-card:hover { border-color: #ffd700; box-shadow: 0 0 30px rgba(255,215,0,0.3); transform: translateY(-5px); }
+        .category-card i { font-size: 45px; color: #4a90e2; margin-bottom: 20px; }
+        .category-card:hover i { color: #ffd700; }
+        .category-card h3 { font-size: 20px; margin-bottom: 10px; }
+        .category-card p { font-size: 14px; opacity: 0.8; line-height: 1.5; }
+        .gallery-section { padding: 40px 20px; background: rgba(0,0,0,0.2); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; max-width: 1200px; margin: 0 auto; }
+        .gallery-item { aspect-ratio: 1; overflow: hidden; border-radius: 10px; border: 2px solid #4a90e2; cursor: pointer; transition: all 0.3s; }
+        .gallery-item:hover { border-color: #ffd700; transform: scale(1.05); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .contact-bar { background: #1e3c72; padding: 30px 20px; text-align: center; }
+        .contact-bar a { color: #fff; text-decoration: none; margin: 0 20px; font-size: 16px; display: inline-block; margin-bottom: 10px; }
+        .contact-bar i { color: #ffd700; margin-right: 8px; }
+        footer { text-align: center; padding: 25px; background: #0a1628; font-size: 14px; opacity: 0.8; }
+        @media (max-width: 768px) { .hero h1 { font-size: 28px; } nav a { margin: 5px; font-size: 12px; padding: 6px 12px; } .logo-container img { max-width: 280px; } }
     </style>
 </head>
 <body>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group Logo">
-                <span class="logo-text">StarFlow Group</span>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#work">Our Work</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Professional Property & Technology Solutions</h1>
-            <p>Innovative Services for Gauteng – From Construction to IT Support, We've Got You Covered 24/7</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/27744872602" class="btn btn-primary" target="_blank">📱 WhatsApp Now</a>
-                <a href="#services" class="btn btn-secondary">🔧 Our Services</a>
-            </div>
-        </div>
+    <div class="logo-container"><img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group"></div>
+    <nav>
+        <a href="index.html" class="active">Home</a>
+        <a href="construction.html">Construction</a>
+        <a href="waterproofing.html">Waterproofing</a>
+        <a href="aluminum.html">Aluminum</a>
+        <a href="plumbing.html">Plumbing</a>
+    </nav>
+    <section class="hero">
+        <h1>Welcome to StarFlow Group</h1>
+        <p>Professional Property & Technology Solutions in Gauteng</p>
+        <a href="https://wa.me/27744872602" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Now</a>
+        <a href="tel:+27744872602" class="btn"><i class="fas fa-phone"></i> Call Us</a>
     </section>
-
-    <section class="categories" id="services">
+    <section class="services">
         <h2 class="section-title">Our Services</h2>
-        <div class="category-grid">
-            <a href="construction.html" class="category-card">
-                <span class="category-icon">🏗️</span>
-                <h3>Construction & Home Improvements</h3>
-                <p>Expert building, renovations, tiling, waterproofing, and structural upgrades across Gauteng.</p>
-                <div class="category-services">Building • Renovations • Tiling • Waterproofing • Roofing</div>
-            </a>
-            <a href="waterproofing.html" class="category-card">
-                <span class="category-icon">💧</span>
-                <h3>Waterproofing & Damp Proofing</h3>
-                <p>Professional waterproofing solutions for roofs, basements, bathrooms, and structural damp issues.</p>
-                <div class="category-services">Roof Waterproofing • Basement • Bathrooms • Damp Proofing</div>
-            </a>
-            <a href="aluminum.html" class="category-card">
-                <span class="category-icon">🪟</span>
-                <h3>Aluminum Works & Glass</h3>
-                <p>Custom aluminum windows, doors, shopfronts, and glass installations for residential and commercial.</p>
-                <div class="category-services">Windows • Doors • Shopfronts • Glass • Partitions</div>
-            </a>
-            <a href="plumbing.html" class="category-card">
-                <span class="category-icon">🔧</span>
-                <h3>Plumbing & Electrical</h3>
-                <p>Full plumbing services, electrical installations, repairs, and maintenance for all property types.</p>
-                <div class="category-services">Plumbing • Electrical • Repairs • Installations • Maintenance</div>
-            </a>
+        <div class="categories">
+            <a href="construction.html" class="category-card"><i class="fas fa-hard-hat"></i><h3>Construction</h3><p>Building, renovations, tiling, painting & ceiling installation</p></a>
+            <a href="waterproofing.html" class="category-card"><i class="fas fa-shield-alt"></i><h3>Waterproofing</h3><p>Roof waterproofing, leak repairs & torch-on solutions</p></a>
+            <a href="aluminum.html" class="category-card"><i class="fas fa-border-all"></i><h3>Aluminum & Glass</h3><p>Windows, doors, showers, balustrades & shopfronts</p></a>
+            <a href="plumbing.html" class="category-card"><i class="fas fa-faucet"></i><h3>Plumbing & Electrical</h3><p>24/7 emergency repairs, geysers, CCTV & security</p></a>
         </div>
     </section>
-
-    <section class="work-gallery" id="work">
-        <div class="gallery-container">
-            <h2 class="section-title">Our Recent Work</h2>
-            <div class="slideshow">
-                <img src="work1.jpg" alt="Construction Work" class="slide active">
-                <img src="work2.jpg" alt="Renovation Project" class="slide">
-                <img src="work3.jpg" alt="Waterproofing" class="slide">
-                <img src="work4.jpg" alt="Aluminum Installation" class="slide">
-                <img src="work5.jpg" alt="Plumbing Work" class="slide">
-                <div class="slideshow-controls">
-                    <span class="slide-dot active" onclick="currentSlide(1)"></span>
-                    <span class="slide-dot" onclick="currentSlide(2)"></span>
-                    <span class="slide-dot" onclick="currentSlide(3)"></span>
-                    <span class="slide-dot" onclick="currentSlide(4)"></span>
-                    <span class="slide-dot" onclick="currentSlide(5)"></span>
-                </div>
-            </div>
+    <section class="gallery-section">
+        <h2 class="section-title">Our Work</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="IMG-20260222-WA0054.jpg" alt="Work"></div>
+            <div class="gallery-item"><img src="IMG-20260222-WA0055.jpg" alt="Work"></div>
+            <div class="gallery-item"><img src="IMG-20260222-WA0056.jpg" alt="Work"></div>
+            <div class="gallery-item"><img src="IMG-20260222-WA0057.jpg" alt="Work"></div>
+            <div class="gallery-item"><img src="IMG-20260222-WA0059.jpg" alt="Work"></div>
+            <div class="gallery-item"><img src="IMG-20260222-WA0060.jpg" alt="Work"></div>
         </div>
     </section>
-
-    <section class="contact" id="contact">
-        <div class="contact-container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-info">
-                <div class="contact-card">
-                    <div class="contact-icon">📱</div>
-                    <h3>WhatsApp / Call</h3>
-                    <a href="https://wa.me/27744872602" target="_blank">+27 74 487 2602</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">📧</div>
-                    <h3>Email</h3>
-                    <a href="mailto:starflowgroup@gmail.com">starflowgroup@gmail.com</a>
-                </div>
-                <div class="contact-card">
-                    <div class="contact-icon">🌐</div>
-                    <h3>Website</h3>
-                    <a href="https://starflowgroup-cmd.github.io/">starflowgroup-cmd.github.io</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <h3>StarFlow Group</h3>
-            <p>Professional Property & Technology Solutions</p>
-            <div class="social-links">
-                <a href="https://wa.me/27744872602" target="_blank" title="WhatsApp">📱</a>
-                <a href="mailto:starflowgroup@gmail.com" title="Email">📧</a>
-                <a href="#" title="Facebook">📘</a>
-                <a href="#" title="Instagram">📸</a>
-            </div>
-            <p>&copy; 2025 StarFlow Group. All rights reserved.</p>
-            <p style="margin-top: 10px; color: #00d4ff;">Serving Johannesburg | Pretoria | Sandton | All Gauteng</p>
-        </div>
-    </footer>
-
-    <div class="chatbot-widget">
-        <button class="chatbot-button" onclick="toggleChatbot()" id="chatbotToggle">🤖<span class="chatbot-notification" id="chatNotification">1</span></button>
-        <div class="chatbot-container" id="chatbotContainer">
-            <div class="chatbot-header">
-                <div class="chatbot-header-left">
-                    <div class="chatbot-avatar">🤖</div>
-                    <div>
-                        <h3>Arise - StarFlow Assistant</h3>
-                        <p>🎤 Voice Input • 7 Languages</p>
-                    </div>
-                </div>
-                <div class="chatbot-controls">
-                    <select class="language-selector-chat" id="languageSelect" onchange="changeLanguage()">
-                        <option value="en">🇬🇧 EN</option>
-                        <option value="af">🇿🇦 AF</option>
-                        <option value="zu">🇿🇦 ZU</option>
-                        <option value="xh">🇿🇦 XH</option>
-                        <option value="st">🇿🇦 ST</option>
-                        <option value="tn">🇿🇦 TN</option>
-                        <option value="nso">🇿🇦 NSO</option>
-                    </select>
-                    <button class="chatbot-control-btn" onclick="toggleChatbot()" title="Close">✕</button>
-                </div>
-            </div>
-            <div class="chatbot-messages" id="chatMessages">
-                <div class="chat-message bot">
-                    <strong>👋 Hello! I'm Arise.</strong><br><br>
-                    Welcome to StarFlow Group! I'm your AI assistant.<br><br>
-                    🎤 <strong>Tap the microphone</strong> and tell me what you need!<br><br>
-                    I can help you with:<br>
-                    • Construction & Renovations<br>
-                    • Waterproofing<br>
-                    • Aluminum & Glass<br>
-                    • Plumbing & Electrical<br>
-                    • IT Support<br><br>
-                    Or type your question below!
-                    <span class="chat-message-time">Just now</span>
-                </div>
-            </div>
-            <div class="typing-indicator" id="typingIndicator">
-                <span></span><span></span><span></span>
-            </div>
-            <div class="quick-replies" id="quickReplies">
-                <span class="quick-reply" onclick="sendQuickReply('Get Quote')">💰 Quote</span>
-                <span class="quick-reply" onclick="sendQuickReply('Emergency')">🚨 Emergency</span>
-                <span class="quick-reply" onclick="sendQuickReply('Services')">🔧 Services</span>
-                <span class="quick-reply" onclick="sendQuickReply('IT Support')">💻 IT</span>
-            </div>
-            <div class="chatbot-input-area">
-                <div class="chatbot-input-wrapper">
-                    <button class="voice-input-btn" id="voiceBtn" onclick="startVoiceInput()" title="🎤 Hold to speak">🎤</button>
-                    <input type="text" class="chatbot-input" id="chatInput" placeholder="Type here or tap mic to speak..." onkeypress="handleKeyPress(event)">
-                    <button class="send-btn" onclick="sendMessage()">➤</button>
-                </div>
-            </div>
-        </div>
+    <div class="contact-bar">
+        <a href="https://wa.me/27744872602" target="_blank"><i class="fab fa-whatsapp"></i> +27 74 487 2602</a>
+        <a href="mailto:info@starflowgroup.co.za"><i class="fas fa-envelope"></i> info@starflowgroup.co.za</a>
     </div>
-
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-        function currentSlide(n) { showSlides(slideIndex = n); }
-        function showSlides(n) {
-            let slides = document.getElementsByClassName("slide");
-            let dots = document.getElementsByClassName("slide-dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
-            for (let i = 0; i < slides.length; i++) { slides[i].classList.remove("active"); }
-            for (let i = 0; i < dots.length; i++) { dots[i].classList.remove("active"); }
-            slides[slideIndex-1].classList.add("active");
-            dots[slideIndex-1].classList.add("active");
-        }
-        setInterval(() => { slideIndex++; showSlides(slideIndex); }, 5000);
-
-        let currentLanguage = 'en';
-        let recognition = null;
-        let isListening = false;
-
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeSpeechRecognition();
-            setTimeout(() => { document.getElementById('chatNotification').style.display = 'none'; }, 5000);
-        });
-
-        function toggleChatbot() {
-            const container = document.getElementById('chatbotContainer');
-            container.classList.toggle('active');
-            if (container.classList.contains('active')) {
-                document.getElementById('chatNotification').style.display = 'none';
-                document.getElementById('chatInput').focus();
-            }
-        }
-
-        function initializeSpeechRecognition() {
-            if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
-                const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-                recognition = new SpeechRecognition();
-                recognition.continuous = false;
-                recognition.interimResults = true;
-                recognition.onstart = function() {
-                    isListening = true;
-                    document.getElementById('voiceBtn').classList.add('listening');
-                    document.getElementById('chatInput').placeholder = "Listening... Speak now!";
-                };
-                recognition.onend = function() {
-                    isListening = false;
-                    document.getElementById('voiceBtn').classList.remove('listening');
-                    document.getElementById('chatInput').placeholder = "Type here or tap mic to speak...";
-                };
-                recognition.onresult = function(event) {
-                    let finalTranscript = '';
-                    let interimTranscript = '';
-                    for (let i = event.resultIndex; i < event.results.length; i++) {
-                        const transcript = event.results[i][0].transcript;
-                        if (event.results[i].isFinal) { finalTranscript += transcript; }
-                        else { interimTranscript += transcript; }
-                    }
-                    if (interimTranscript) { document.getElementById('chatInput').value = interimTranscript; }
-                    if (finalTranscript) {
-                        document.getElementById('chatInput').value = finalTranscript;
-                        setTimeout(() => sendMessage(), 500);
-                    }
-                };
-                recognition.onerror = function(event) {
-                    isListening = false;
-                    document.getElementById('voiceBtn').classList.remove('listening');
-                    if (event.error === 'no-speech') {
-                        addMessage('bot', "I didn't hear anything. Please try again or type your message.");
-                    }
-                };
-            }
-        }
-
-        function startVoiceInput() {
-            if (!recognition) { alert('Voice input not supported. Please type your message.'); return; }
-            const langCodes = { 'en': 'en-ZA', 'af': 'af-ZA', 'zu': 'zu-ZA', 'xh': 'xh-ZA', 'st': 'st-SA', 'tn': 'tn-SA', 'nso': 'nso-ZA' };
-            recognition.lang = langCodes[currentLanguage] || 'en-ZA';
-            if (isListening) { recognition.stop(); } else { recognition.start(); }
-        }
-
-        function changeLanguage() {
-            currentLanguage = document.getElementById('languageSelect').value;
-            const greetings = { 'en': 'Language changed to English', 'af': 'Taal verander na Afrikaans', 'zu': 'Ulimi lushintshelwe esiZulu', 'xh': 'Ulwimi lushintshelwe isiXhosa', 'st': 'Puo e fetsoha ho Sesotho', 'tn': 'Puo e fetileng go Setswana', 'nso': 'Leleme le tšhaba go Sepedi' };
-            addMessage('bot', greetings[currentLanguage] + " 🇬🇧");
-            if (isListening) { recognition.stop(); setTimeout(() => startVoiceInput(), 300); }
-        }
-
-        function sendMessage() {
-            const input = document.getElementById('chatInput');
-            const message = input.value.trim();
-            if (message) { addMessage('user', message); input.value = ''; processMessage(message); }
-        }
-
-        function sendQuickReply(text) { addMessage('user', text); processMessage(text); }
-
-        function addMessage(sender, text) {
-            const container = document.getElementById('chatMessages');
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'chat-message ' + sender;
-            const time = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
-            if (sender === 'bot') {
-                messageDiv.innerHTML = '<span class="typing-text"></span><span class="chat-message-time">' + time + '</span>';
-                container.appendChild(messageDiv);
-                container.scrollTop = container.scrollHeight;
-                typeText(messageDiv.querySelector('.typing-text'), text, 10);
-            } else {
-                messageDiv.innerHTML = text + '<span class="chat-message-time">' + time + '</span>';
-                container.appendChild(messageDiv);
-                container.scrollTop = container.scrollHeight;
-            }
-        }
-
-        function typeText(element, text, speed) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() { if (i < text.length) { element.innerHTML += text.charAt(i); i++; setTimeout(type, speed); } }
-            type();
-        }
-
-        function processMessage(message) {
-            showTyping();
-            const responseTime = 300 + Math.random() * 500;
-            setTimeout(() => {
-                hideTyping();
-                const response = generateResponse(message.toLowerCase());
-                addMessage('bot', response);
-                guideToService(message.toLowerCase());
-            }, responseTime);
-        }
-
-        function showTyping() { document.getElementById('typingIndicator').classList.add('active'); }
-        function hideTyping() { document.getElementById('typingIndicator').classList.remove('active'); }
-
-        function guideToService(message) {
-            const services = { 'construction': { page: 'construction.html', icon: '🏗️' }, 'renovation': { page: 'construction.html', icon: '🏗️' }, 'tiling': { page: 'construction.html', icon: '🏗️' }, 'waterproofing': { page: 'waterproofing.html', icon: '💧' }, 'damp': { page: 'waterproofing.html', icon: '💧' }, 'leak': { page: 'waterproofing.html', icon: '💧' }, 'aluminum': { page: 'aluminum.html', icon: '🪟' }, 'window': { page: 'aluminum.html', icon: '🪟' }, 'door': { page: 'aluminum.html', icon: '🪟' }, 'glass': { page: 'aluminum.html', icon: '🪟' }, 'plumbing': { page: 'plumbing.html', icon: '🔧' }, 'geyser': { page: 'plumbing.html', icon: '🔧' }, 'electrical': { page: 'plumbing.html', icon: '⚡' }, 'wiring': { page: 'plumbing.html', icon: '⚡' } };
-            for (let keyword in services) {
-                if (message.includes(keyword)) {
-                    setTimeout(() => {
-                        const service = services[keyword];
-                        addMessage('bot', `I can help with that! Click here to learn more:<br><br><a href="${service.page}" style="color: #00d4ff; text-decoration: none; font-weight: bold;">${service.icon} View ${keyword.charAt(0).toUpperCase() + keyword.slice(1)} Services →</a>`);
-                    }, 1500);
-                    break;
-                }
-            }
-        }
-
-        function generateResponse(msg) {
-            if (msg.includes('emergency') || msg.includes('urgent') || msg.includes('burst') || msg.includes('flood')) { return "🚨 <strong>EMERGENCY!</strong><br><br>Call now:<br>📞 <strong>+27 74 487 2602</strong><br><br>24/7 Emergency Line!"; }
-            if (msg.includes('price') || msg.includes('cost') || msg.includes('quote') || msg.includes('how much')) { return "💰 <strong>Free Quotes!</strong><br><br>• Call-out: R450-R850<br>• Hourly: R850-R1,500<br><br>WhatsApp photos to +27 74 487 2602 for accurate pricing!"; }
-            if (msg.includes('hour') || msg.includes('time') || msg.includes('when') || msg.includes('open')) { return "🕐 <strong>Hours:</strong><br>Mon-Fri: 7AM-6PM<br>Sat: 8AM-4PM<br><br>🚨 24/7 Emergency: +27 74 487 2602"; }
-            if (msg.includes('where') || msg.includes('location') || msg.includes('area') || msg.includes('sandton') || msg.includes('johannesburg')) { return "📍 <strong>We serve all Gauteng:</strong><br>Johannesburg, Pretoria, Sandton, Randburg, Midrand, Centurion & more!<br><br>Where is your property?"; }
-            if (msg.includes('service') || msg.includes('what do you do') || msg.includes('help')) { return "🔧 <strong>Our Services:</strong><br><br>🏗️ Construction & Renovations<br>💧 Waterproofing<br>🪟 Aluminum & Glass<br>🔧 Plumbing & Electrical<br>💻 IT Support<br><br>Which service do you need?"; }
-            if (msg.includes('construction') || msg.includes('building') || msg.includes('renovation')) { return "🏗️ <strong>Construction Services:</strong><br>• New builds<br>• Renovations<br>• Tiling<br>• Roofing<br><br><a href='construction.html' style='color: #00d4ff;'>View Construction Page →</a>"; }
-            if (msg.includes('waterproofing') || msg.includes('damp') || msg.includes('leak') || msg.includes('water')) { return "💧 <strong>Waterproofing:</strong><br>• Roof waterproofing<br>• Basement<br>• Bathrooms<br>• Damp proofing<br><br>Act fast - water damage worsens!<br><a href='waterproofing.html' style='color: #00d4ff;'>Learn More →</a>"; }
-            if (msg.includes('aluminum') || msg.includes('window') || msg.includes('door') || msg.includes('glass')) { return "🪟 <strong>Aluminum Works:</strong><br>• Windows<br>• Doors<br>• Shopfronts<br>• Glass partitions<br><br>5-year guarantee!<br><a href='aluminum.html' style='color: #00d4ff;'>View Options →</a>"; }
-            if (msg.includes('plumbing') || msg.includes('geyser') || msg.includes('pipe') || msg.includes('drain')) { return "🔧 <strong>Plumbing:</strong><br>• Leak repairs<br>• Geyser install/repair<br>• Drain cleaning<br>• Bathrooms<br><br>Same-day service!<br><a href='plumbing.html' style='color: #00d4ff;'>See Services →</a>"; }
-            if (msg.includes('electrical') || msg.includes('power') || msg.includes('wiring') || msg.includes('light')) { return "⚡ <strong>Electrical:</strong><br>• Repairs<br>• Installations<br>• Compliance certificates<br>• House rewiring<br><br>COCT compliant!<br><a href='plumbing.html' style='color: #00d4ff;'>Learn More →</a>"; }
-            if (msg.includes('computer') || msg.includes('laptop') || msg.includes('virus') || msg.includes('it') || msg.includes('wifi')) { return "💻 <strong>IT Support:</strong><br>• Remote assistance<br>• Virus removal<br>• Network/WiFi setup<br>• Data recovery<br><br>We can connect remotely!"; }
-            if (msg.includes('hello') || msg.includes('hi') || msg.includes('hey')) { return "👋 Hello! I'm Arise.<br><br>I can help with construction, waterproofing, aluminum, plumbing, electrical & IT.<br><br>What do you need help with?"; }
-            if (msg.includes('thank')) { return "You're welcome! 😊<br><br>I'm here 24/7 if you need anything else!"; }
-            if (msg.includes('bye') || msg.includes('goodbye')) { return "Goodbye! 👋<br><br>Thank you for chatting with StarFlow Group. Have a great day!"; }
-            return "I can help with that! 💪<br><br>Tell me more about your project, or call/WhatsApp:<br>📞 <strong>+27 74 487 2602</strong><br><br>Or tap a quick reply below!";
-        }
-
-        function handleKeyPress(event) { if (event.key === 'Enter') { sendMessage(); } }
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
-            });
-        });
-    </script>
+    <footer><p>&copy; 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p></footer>
 </body>
 </html>
