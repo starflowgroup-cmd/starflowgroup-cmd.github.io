@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Systems | StarFlow Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(180deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .nav-logo {
+            height: 40px;
+        }
+        
+        .back-link {
+            color: #00d4ff;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: #ffffff;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 20px 80px;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #00d4ff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .page-header p {
+            color: #a0c4d9;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .service-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .service-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.5);
+            transform: translateX(10px);
+        }
+        
+        .service-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .service-content h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        
+        .service-content p {
+            color: #8aa3b8;
+            font-size: 0.9rem;
+        }
+        
+        .cta-section {
+            text-align: center;
+            margin-top: 60px;
+            padding: 40px;
+            background: rgba(0, 212, 255, 0.05);
+            border-radius: 15px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+        }
+        
+        .cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+        
+        .cta-section p {
+            color: #a0c4d9;
+            margin-bottom: 25px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+        
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            margin-top: 60px;
+        }
+        
+        footer p {
+            color: #7a9ab5;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div style="display: flex; align-items: center; gap: 10px;">
+            <img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow" class="nav-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" style="height: 40px;">
+            <div style="display: none; align-items: center; gap: 8px; color: #00d4ff; font-weight: 700; font-size: 1.2rem;">
+                <span style="font-size: 1.5rem;">⭐</span> StarFlow
+            </div>
+        </div>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </nav>
+    
+    <div class="container">
+        <div class="page-header">
+            <h1>Home Security Systems</h1>
+            <p>Complete security, power & integrated technology solutions for homes and businesses across Gauteng</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-item">
+                <div class="service-icon">📹</div>
+                <div class="service-content">
+                    <h3>CCTV Surveillance</h3>
+                    <p>HD camera systems with remote monitoring</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">🚨</div>
+                <div class="service-content">
+                    <h3>Alarm Systems</h3>
+                    <p>Burglar alarms, sensors & 24/7 monitoring</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">🚪</div>
+                <div class="service-content">
+                    <h3>Access Control</h3>
+                    <p>Biometric, card & keypad entry systems</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">⚡</div>
+                <div class="service-content">
+                    <h3>Perimeter Security</h3>
+                    <p>Electric fencing & boundary protection</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">☀️</div>
+                <div class="service-content">
+                    <h3>Solar Power Solutions</h3>
+                    <p>Solar panels, inverters & battery backup</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">🔋</div>
+                <div class="service-content">
+                    <h3>Backup Power Systems</h3>
+                    <p>UPS, generators & load shedding solutions</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">🏢</div>
+                <div class="service-content">
+                    <h3>Commercial AV Systems</h3>
+                    <p>Conference rooms, digital signage & sound</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">📱</div>
+                <div class="service-content">
+                    <h3>Smart Building Integration</h3>
+                    <p>Automated security, lighting & climate control</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">🛡️</div>
+                <div class="service-content">
+                    <h3>Intercom & Communication</h3>
+                    <p>Video intercoms & internal communication</p>
+                </div>
+            </div>
+            
+            <div class="service-item">
+                <div class="service-icon">🔥</div>
+                <div class="service-content">
+                    <h3>Fire Safety Systems</h3>
+                    <p>Detection, alarms & suppression systems</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Secure Your Property Today</h2>
+            <p>Get a free security assessment and customized protection plan</p>
+            <a href="https://wa.me/27744872602" class="cta-btn" target="_blank">Get Free Assessment</a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>© 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p>
+    </footer>
+</body>
+</html>
