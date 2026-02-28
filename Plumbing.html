@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plumbing & Electrical | StarFlow Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #16213e 100%); color: #ffffff; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid rgba(0, 212, 255, 0.3); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { height: 50px; }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: #00d4ff; }
+        .back-btn { background: rgba(0, 212, 255, 0.1); border: 2px solid #00d4ff; color: #00d4ff; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .back-btn:hover { background: rgba(0, 212, 255, 0.3); transform: translateY(-2px); }
+        .hero { margin-top: 100px; padding: 60px 20px; text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, transparent 50%); }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #00d4ff; margin-bottom: 20px; }
+        .services-section { padding: 60px 20px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 20px; padding: 40px; text-align: center; transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3); border-color: #00d4ff; }
+        .service-icon { font-size: 3.5rem; margin-bottom: 20px; }
+        .service-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: #00d4ff; margin-bottom: 15px; }
+        .service-list { list-style: none; margin-top: 20px; text-align: left; }
+        .service-list li { padding: 10px; border-bottom: 1px solid rgba(0, 212, 255, 0.2); color: #c0d4e8; padding-left: 25px; position: relative; }
+        .service-list li:before { content: "✓"; position: absolute; left: 0; color: #00d4ff; font-weight: bold; }
+        .service-list li:last-child { border-bottom: none; }
+        .cta-section { padding: 60px 20px; text-align: center; background: rgba(0, 0, 0, 0.3); }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); color: #000000; padding: 18px 50px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin: 10px; transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4); }
+        .emergency-banner { background: linear-gradient(135deg, #ff3366 0%, #cc0033 100%); color: #ffffff; padding: 30px; border-radius: 15px; margin: 40px auto; max-width: 800px; text-align: center; }
+        .emergency-banner h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 15px; }
+        .emergency-banner p { font-size: 1.2rem; margin-bottom: 20px; }
+        .emergency-btn { display: inline-block; background: #ffffff; color: #ff3366; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.2rem; transition: all 0.3s ease; }
+        .emergency-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+        footer { background: rgba(0, 0, 0, 0.5); padding: 40px 20px; text-align: center; border-top: 2px solid rgba(0, 212, 255, 0.3); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group">
+                <span class="logo-text">StarFlow Group</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🔧 Plumbing & Electrical Services</h1>
+            <p style="font-size: 1.2rem; color: #c0d4e8; max-width: 800px; margin: 0 auto;">Professional plumbing and electrical services for homes and businesses. Licensed, insured, and available 24/7 for emergencies.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="emergency-banner">
+            <h3>🚨 24/7 Emergency Services</h3>
+            <p>Plumbing burst? Power outage? Electrical fault?<br>We're available around the clock for urgent repairs!</p>
+            <a href="https://wa.me/27744872602" class="emergency-btn" target="_blank">📞 Call Emergency Line</a>
+        </div>
+    </div>
+
+    <section class="services-section container">
+        <h2 style="text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 40px; color: #00d4ff;">Plumbing Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚿</div>
+                <h3>General Plumbing</h3>
+                <p>All plumbing repairs and installations</p>
+                <ul class="service-list">
+                    <li>Leak detection & repair</li>
+                    <li>Tap & mixer repairs</li>
+                    <li>Toilet repairs & installation</li>
+                    <li>Sink & basin installation</li>
+                    <li>Pipe repairs & replacement</li>
+                    <li>Drain cleaning & unblocking</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔥</div>
+                <h3>Geyser Services</h3>
+                <p>Complete geyser solutions</p>
+                <ul class="service-list">
+                    <li>Geyser installation</li>
+                    <li>Geyser repairs</li>
+                    <li>Element & thermostat replacement</li>
+                    <li>Pressure valve replacement</li>
+                    <li>Solar geyser conversion</li>
+                    <li>Geyser maintenance</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Bathroom Plumbing</h3>
+                <p>Full bathroom solutions</p>
+                <ul class="service-list">
+                    <li>Shower installation</li>
+                    <li>Bath installation</li>
+                    <li>Bathroom renovations</li>
+                    <li>Waterproofing</li>
+                    <li>Plumbing rough-in</li>
+                    <li>Fixture upgrades</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section container" style="background: rgba(0,0,0,0.2); margin: 0 -20px; padding: 60px 40px;">
+        <h2 style="text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 40px; color: #00d4ff;">Electrical Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>General Electrical</h3>
+                <p>Safe, certified electrical work</p>
+                <ul class="service-list">
+                    <li>Electrical repairs</li>
+                    <li>Circuit breaker upgrades</li>
+                    <li>Lighting installation</li>
+                    <li>Socket & switch installation</li>
+                    <li>Fault finding</li>
+                    <li>Electrical certificates (COC)</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏘️</div>
+                <h3>Home Electrical</h3>
+                <p>Residential electrical solutions</p>
+                <ul class="service-list">
+                    <li>House rewiring</li>
+                    <li>Distribution board upgrades</li>
+                    <li>Outdoor lighting</li>
+                    <li>Security lighting</li>
+                    <li>Generator connections</li>
+                    <li>Surge protection</li>
+                </ul>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🏢</div>
+                <h3>Commercial Electrical</h3>
+                <p>Business electrical services</p>
+                <ul class="service-list">
+                    <li>Office wiring</li>
+                    <li>Shop fitting electrics</li>
+                    <li>Data cabling</li>
+                    <li>Emergency lighting</li>
+                    <li>Maintenance contracts</li>
+                    <li>Electrical compliance</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 30px; color: #00d4ff;">Need a Plumber or Electrician?</h2>
+            <p style="margin-bottom: 30px; color: #c0d4e8;">Free call-out and assessment. Quality workmanship guaranteed.</p>
+            <a href="https://wa.me/27744872602" class="cta-button" target="_blank">📱 WhatsApp Now</a>
+            <a href="mailto:starflowgroup@gmail.com" class="cta-button">📧 Email Us</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>StarFlow Group</h3>
+            <p>Professional Property & Technology Solutions</p>
+            <p style="margin-top: 20px; color: #00d4ff;">📱 +27 74 487 2602 | 📧 starflowgroup@gmail.com</p>
+            <p style="margin-top: 10px;">Serving Johannesburg | Pretoria | Sandton | All Gauteng</p>
+        </div>
+    </footer>
+</body>
+</html>
