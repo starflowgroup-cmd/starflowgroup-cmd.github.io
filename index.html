@@ -1,7 +1,4 @@
-
-# Create complete index.html with full-width logo, slideshow, and glowing nav
-
-index_html = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +9,6 @@ index_html = '''<!DOCTYPE html>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Arial, sans-serif; background: #0a1628; color: #fff; }
         
-        /* FULL WIDTH LOGO */
         .logo-container { 
             width: 100%;
             background: linear-gradient(180deg, #0a1628 0%, #1e3c72 50%, #0a1628 100%);
@@ -37,7 +33,6 @@ index_html = '''<!DOCTYPE html>
             z-index: 1;
         }
         
-        /* GLOWING NAVIGATION */
         nav { 
             background: linear-gradient(90deg, #1e3c72, #2a5298, #1e3c72); 
             padding: 15px; 
@@ -85,7 +80,6 @@ index_html = '''<!DOCTYPE html>
             transform: translateY(-2px);
         }
         
-        /* SLIDESHOW */
         .slideshow-container {
             position: relative;
             max-width: 1200px;
@@ -175,7 +169,6 @@ index_html = '''<!DOCTYPE html>
             box-shadow: 0 0 20px #ffd700;
         }
         
-        /* SERVICES */
         .services { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
         .section-title { text-align: center; font-size: 36px; margin-bottom: 40px; color: #ffd700; }
         .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -220,7 +213,6 @@ index_html = '''<!DOCTYPE html>
         .category-card h3 { font-size: 22px; margin-bottom: 10px; }
         .category-card p { font-size: 14px; opacity: 0.8; line-height: 1.5; }
         
-        /* CONTACT */
         .contact-bar { background: #1e3c72; padding: 40px 20px; text-align: center; }
         .contact-bar a { color: #fff; text-decoration: none; margin: 0 20px; font-size: 18px; display: inline-block; margin-bottom: 10px; transition: all 0.3s; }
         .contact-bar a:hover { color: #ffd700; transform: scale(1.05); }
@@ -228,7 +220,6 @@ index_html = '''<!DOCTYPE html>
         
         footer { text-align: center; padding: 30px; background: #0a1628; font-size: 14px; opacity: 0.8; }
         
-        /* ARISE CHATBOT */
         .arise-container { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
         .arise-button { 
             width: 60px; 
@@ -318,12 +309,10 @@ index_html = '''<!DOCTYPE html>
     </style>
 </head>
 <body>
-    <!-- FULL WIDTH LOGO -->
     <div class="logo-container">
         <img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group">
     </div>
     
-    <!-- GLOWING NAVIGATION -->
     <nav>
         <a href="index.html" class="active">Home</a>
         <a href="construction.html">Construction</a>
@@ -332,7 +321,6 @@ index_html = '''<!DOCTYPE html>
         <a href="plumbing.html">Plumbing</a>
     </nav>
     
-    <!-- SLIDESHOW -->
     <div class="slideshow-container">
         <div class="slideshow" id="slideshow">
             <div class="slide">
@@ -376,7 +364,6 @@ index_html = '''<!DOCTYPE html>
         </div>
     </div>
     
-    <!-- SERVICES -->
     <section class="services">
         <h2 class="section-title">Our Services</h2>
         <div class="categories">
@@ -403,19 +390,16 @@ index_html = '''<!DOCTYPE html>
         </div>
     </section>
     
-    <!-- CONTACT -->
     <div class="contact-bar">
         <a href="https://wa.me/27744872602" target="_blank"><i class="fab fa-whatsapp"></i> +27 74 487 2602</a>
         <a href="mailto:info@starflowgroup.co.za"><i class="fas fa-envelope"></i> info@starflowgroup.co.za</a>
         <a href="https://starflowgroup-cmd.github.io"><i class="fas fa-globe"></i> www.starflowgroup.co.za</a>
     </div>
     
-    <!-- FOOTER -->
     <footer>
         <p>&copy; 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p>
     </footer>
     
-    <!-- ARISE CHATBOT -->
     <div class="arise-container">
         <div class="arise-chat" id="ariseChat">
             <div class="arise-header">
@@ -433,183 +417,4 @@ index_html = '''<!DOCTYPE html>
                     What's your name?
                 </div>
             </div>
-            <div class="arise-input-area">
-                <input type="text" class="arise-input" id="ariseInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-                <button class="arise-send" onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
-            </div>
-        </div>
-        <button class="arise-button" onclick="toggleArise()"><i class="fas fa-robot"></i></button>
-    </div>
-    
-    <script>
-        // SLIDESHOW
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        const dots = document.querySelectorAll('.slideshow-nav button');
-        
-        function updateSlide() {
-            document.getElementById('slideshow').style.transform = `translateX(-${currentSlide * 100}%)`;
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-        
-        function changeSlide(direction) {
-            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
-            updateSlide();
-        }
-        
-        function goToSlide(index) {
-            currentSlide = index;
-            updateSlide();
-        }
-        
-        // Auto-advance every 4 seconds
-        setInterval(() => changeSlide(1), 4000);
-        
-        // ARISE CHATBOT
-        let clientData = { name: '', phone: '', email: '', service: '', stage: 'name' };
-        let conversationLog = [];
-        
-        const autoCorrect = {
-            'helo': 'hello', 'hllo': 'hello', 'heloo': 'hello',
-            'plumbing': 'plumbing', 'plumming': 'plumbing', 'plumbin': 'plumbing',
-            'construction': 'construction', 'constrution': 'construction',
-            'waterproofing': 'waterproofing', 'waterproofin': 'waterproofing',
-            'aluminum': 'aluminum', 'aluminium': 'aluminum', 'alumium': 'aluminum',
-            'emergency': 'emergency', 'emergncy': 'emergency',
-            'quote': 'quote', 'qoute': 'quote',
-            'price': 'price', 'prce': 'price', 'prize': 'price',
-            'help': 'help', 'hlp': 'help',
-            'thanks': 'thank you', 'thx': 'thank you', 'thanx': 'thank you'
-        };
-        
-        const serviceInfo = {
-            'construction': 'Our construction services include building, renovations, tiling, painting, drywall, and ceiling installation. We work across Gauteng.',
-            'waterproofing': 'We offer roof waterproofing, basement sealing, balcony waterproofing, leak detection, and torch-on membrane application. 10-year guarantee!',
-            'aluminum': 'We manufacture and install aluminum windows, doors, frameless showers, glass balustrades, and shopfronts. Custom sizes available.',
-            'plumbing': '24/7 emergency plumbing, geyser services, drain cleaning, electrical repairs, CCTV installation, and security systems.',
-            'emergency': 'For emergencies, call or WhatsApp us immediately at +27 74 487 2602. We\'re available 24/7!',
-            'price': 'Prices vary by project. We offer FREE quotes! Would you like to provide your details for a callback?',
-            'quote': 'I\'d be happy to arrange a free quote! May I have your phone number and which service you need?',
-            'hours': 'We operate Monday-Saturday 8AM-6PM, with 24/7 emergency services available.',
-            'location': 'We serve Johannesburg, Pretoria, Sandton, and all surrounding areas in Gauteng.',
-            'contact': 'Reach us at: WhatsApp +27 74 487 2602, Email info@starflowgroup.co.za'
-        };
-        
-        function toggleArise() {
-            const chat = document.getElementById('ariseChat');
-            chat.classList.toggle('active');
-            if (chat.classList.contains('active')) {
-                document.getElementById('ariseInput').focus();
-            }
-        }
-        
-        function handleKeyPress(e) {
-            if (e.key === 'Enter') sendMessage();
-        }
-        
-        function correctSpelling(text) {
-            let words = text.toLowerCase().split(' ');
-            words = words.map(word => autoCorrect[word] || word);
-            return words.join(' ');
-        }
-        
-        function addMessage(text, isUser = false) {
-            const messages = document.getElementById('ariseMessages');
-            const div = document.createElement('div');
-            div.className = 'arise-message ' + (isUser ? 'user' : 'bot');
-            div.innerHTML = text;
-            messages.appendChild(div);
-            messages.scrollTop = messages.scrollHeight;
-            conversationLog.push({
-                timestamp: new Date().toISOString(),
-                sender: isUser ? 'client' : 'arise',
-                message: text
-            });
-        }
-        
-        function sendMessage() {
-            const input = document.getElementById('ariseInput');
-            const text = input.value.trim();
-            if (!text) return;
-            
-            const correctedText = correctSpelling(text);
-            addMessage(text, true);
-            input.value = '';
-            
-            setTimeout(() => processResponse(correctedText), 500);
-        }
-        
-        function processResponse(text) {
-            let response = '';
-            const lowerText = text.toLowerCase();
-            
-            if (clientData.stage === 'name') {
-                clientData.name = text;
-                clientData.stage = 'phone';
-                response = `Nice to meet you, ${text}! 📱 What's your phone number?`;
-            } else if (clientData.stage === 'phone') {
-                const phoneRegex = /[0-9]{10,}/;
-                if (phoneRegex.test(text.replace(/\s/g, ''))) {
-                    clientData.phone = text;
-                    clientData.stage = 'service';
-                    response = `Great! Which service do you need?<br><br>1. Construction<br>2. Waterproofing<br>3. Aluminum & Glass<br>4. Plumbing & Electrical<br>5. Emergency`;
-                } else {
-                    response = 'Please enter a valid phone number (at least 10 digits):';
-                }
-            } else if (clientData.stage === 'service') {
-                clientData.service = text;
-                clientData.stage = 'complete';
-                response = `Perfect! ✅<br><br>Thank you ${clientData.name}! We've captured your details:<br>• Phone: ${clientData.phone}<br>• Service: ${text}<br><br>A consultant will contact you within 30 minutes!<br><br>Is there anything else I can help with?`;
-                saveClientData();
-            } else {
-                let matched = false;
-                for (let key in serviceInfo) {
-                    if (lowerText.includes(key)) {
-                        response = serviceInfo[key];
-                        matched = true;
-                        break;
-                    }
-                }
-                
-                if (!matched) {
-                    if (lowerText.includes('hello') || lowerText.includes('hi')) {
-                        response = `Hello${clientData.name ? ' ' + clientData.name : ''}! How can I assist you today?`;
-                    } else if (lowerText.includes('bye') || lowerText.includes('goodbye')) {
-                        response = 'Goodbye! Have a great day! 👋';
-                    } else if (lowerText.includes('thank')) {
-                        response = 'You\'re welcome! 😊 Is there anything else you need?';
-                    } else {
-                        response = 'I can help with information about our construction, waterproofing, aluminum, or plumbing services. Or type "quote" for a free estimate!';
-                    }
-                }
-            }
-            
-            addMessage(response);
-        }
-        
-        function saveClientData() {
-            const leads = JSON.parse(localStorage.getItem('starflow_leads') || '[]');
-            leads.push({
-                ...clientData,
-                timestamp: new Date().toISOString(),
-                conversation: conversationLog
-            });
-            localStorage.setItem('starflow_leads', JSON.stringify(leads));
-        }
-    </script>
-</body>
-</html>'''
-
-print("✅ INDEX.HTML COMPLETE")
-print("Features:")
-print("- Full-width glowing logo")
-print("- Auto-slideshow (4 seconds)")
-print("- Manual arrows + dots")
-print("- Glowing navigation")
-print("- Glowing category cards")
-print("- Arise chatbot with auto-correct")
-print("- Client data capture")
-print("- Mobile responsive")
+            <div class="
