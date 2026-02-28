@@ -1,73 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waterproofing & Damp Proofing | StarFlow Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Open Sans', sans-serif; background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #16213e 100%); color: #ffffff; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid rgba(0, 212, 255, 0.3); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { height: 50px; }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: #00d4ff; }
+        .back-btn { background: rgba(0, 212, 255, 0.1); border: 2px solid #00d4ff; color: #00d4ff; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .back-btn:hover { background: rgba(0, 212, 255, 0.3); transform: translateY(-2px); }
+        .hero { margin-top: 100px; padding: 60px 20px; text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, transparent 50%); }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #00d4ff; margin-bottom: 20px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 20px; }
+        .service-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 20px; padding: 40px; text-align: center; transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3); border-color: #00d4ff; }
+        .service-icon { font-size: 3.5rem; margin-bottom: 20px; }
+        .service-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: #00d4ff; margin-bottom: 15px; }
+        .service-list { list-style: none; margin-top: 20px; }
+        .service-list li { padding: 10px; border-bottom: 1px solid rgba(0, 212, 255, 0.2); color: #c0d4e8; }
+        .service-list li:last-child { border-bottom: none; }
+        .cta-section { padding: 60px 20px; text-align: center; background: rgba(0, 0, 0, 0.3); }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); color: #000000; padding: 18px 50px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin: 10px; transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4); }
+        .warning-box { background: rgba(255, 51, 102, 0.1); border: 2px solid rgba(255, 51, 102, 0.3); border-radius: 15px; padding: 30px; margin: 40px auto; max-width: 800px; text-align: center; }
+        .warning-box h3 { color: #ff3366; font-family: 'Montserrat', sans-serif; margin-bottom: 15px; }
+        footer { background: rgba(0, 0, 0, 0.5); padding: 40px 20px; text-align: center; border-top: 2px solid rgba(0, 212, 255, 0.3); }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group">
+                <span class="logo-text">StarFlow Group</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
+        </div>
+    </header>
 
-# Create remaining 3 category pages
+    <section class="hero">
+        <div class="container">
+            <h1>💧 Waterproofing & Damp Proofing</h1>
+            <p style="font-size: 1.2rem; color: #c0d4e8; max-width: 800px; margin: 0 auto;">Professional waterproofing solutions to protect your property from water damage, damp, and leaks. We use premium materials and proven techniques.</p>
+        </div>
+    </section>
 
-# Waterproofing data
-waterproofing_cats = [
-    {"id": "roof", "name": "Roof Waterproofing", "icon": "fas fa-home", "items": ["Tile roof waterproofing", "Flat roof sealing", "Metal roof protection", "Ridge cap sealing", "Valley gutter waterproofing", "Chimney flashing", "Roof maintenance programs"]},
-    {"id": "basement", "name": "Basement & Structural", "icon": "fas fa-building", "items": ["Basement tanking", "Foundation waterproofing", "Retaining wall sealing", "Concrete crack injection", "Negative side waterproofing", "Sump pump installation", "Drainage systems"]},
-    {"id": "balcony", "name": "Balcony & Terrace", "icon": "fas fa-umbrella", "items": ["Balcony sealing", "Terrace waterproofing", "Patio protection", "Slip-resistant coatings", "Tile-on-tile systems", "Expansion joint treatment", "Parapet wall sealing"]},
-    {"id": "bathroom", "name": "Bathroom & Wet Areas", "icon": "fas fa-bath", "items": ["Shower waterproofing", "Bathroom floor sealing", "Wall damp proofing", "Tile bed waterproofing", "Pipe penetration sealing", "Shower recess waterproofing", "Mold-resistant coatings"]},
-    {"id": "leak", "name": "Leak Detection & Repair", "icon": "fas fa-search", "items": ["Electronic leak detection", "Thermal imaging surveys", "Moisture meter testing", "Core sample analysis", "Leak source identification", "Emergency leak repairs", "Insurance assessments"]},
-    {"id": "specialized", "name": "Specialized Systems", "icon": "fas fa-fire", "items": ["Torch-on membrane", "Liquid applied systems", "Bituminous coatings", "Polyurethane membranes", "Cementitious waterproofing", "EPDM rubber systems", "Green roof systems"]}
-]
+    <div class="container">
+        <div class="warning-box">
+            <h3>🚨 Water Damage Warning Signs</h3>
+            <p style="color: #c0d4e8;">Damp walls • Mold growth • Peeling paint • Musty odors • Water stains • Cracked plaster • Efflorescence (white powder) • Wet basement floors</p>
+            <p style="margin-top: 15px; color: #ff3366; font-weight: bold;">Act fast! Water damage gets worse and more expensive over time.</p>
+        </div>
+    </div>
 
-waterproofing_html = create_sidebar_page(
-    "Waterproofing & Roofing",
-    "fas fa-shield-alt",
-    "waterproofing",
-    waterproofing_cats,
-    ["IMG-20260222-WA0012.jpg", "IMG-20260222-WA0013.jpg", "IMG-20260222-WA0014.jpg", "IMG-20260222-WA0015.jpg", "IMG-20260222-WA0017.jpg", "IMG-20260222-WA0019.jpg"]
-)
+    <section class="services-grid container">
+        <div class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3>Roof Waterproofing</h3>
+            <p>Complete roof protection solutions</p>
+            <ul class="service-list">
+                <li>Torch-on waterproofing</li>
+                <li>Liquid membrane systems</li>
+                <li>Tile roof sealing</li>
+                <li>Flat roof waterproofing</li>
+                <li>Gutter and flashing repairs</li>
+            </ul>
+        </div>
 
-# Aluminum data
-aluminum_cats = [
-    {"id": "windows", "name": "Aluminum Windows", "icon": "fas fa-window-maximize", "items": ["Sliding windows", "Casement windows", "Awning windows", "Fixed picture windows", "Tilt & turn windows", "Double-glazed options", "Custom sizes & colors"]},
-    {"id": "doors", "name": "Aluminum Doors", "icon": "fas fa-door-open", "items": ["Sliding patio doors", "Folding/stacker doors", "Hinged doors", "French doors", "Security doors", "Shopfront doors", "Automatic door systems"]},
-    {"id": "showers", "name": "Frameless Glass", "icon": "fas fa-shower", "items": ["Frameless shower doors", "Glass shower enclosures", "Sliding shower screens", "Hinged shower doors", "Walk-in shower panels", "Toughened safety glass", "Frosted/privacy glass"]},
-    {"id": "balustrades", "name": "Glass Balustrades", "icon": "fas fa-grip-lines-vertical", "items": ["Staircase balustrades", "Balcony railings", "Pool fencing", "Deck railings", "Frameless glass rails", "Semi-frameless options", "Stainless steel fittings"]},
-    {"id": "shopfronts", "name": "Shopfronts & Commercial", "icon": "fas fa-store", "items": ["Retail shopfronts", "Office partitions", "Display windows", "Entrance canopies", "Revolving doors", "Automatic sliders", "Security shutters"]},
-    {"id": "custom", "name": "Custom Glass", "icon": "fas fa-th-large", "items": ["Kitchen splashbacks", "Mirror installations", "Glass tabletops", "Partition walls", "Skylights", "Glass signage", "Decorative glass"]}
-]
+        <div class="service-card">
+            <div class="service-icon">🏢</div>
+            <h3>Basement Waterproofing</h3>
+            <p>Keep your basement dry</p>
+            <ul class="service-list">
+                <li>Interior waterproofing</li>
+                <li>Exterior excavation</li>
+                <li>Drainage systems</li>
+                <li>Sump pump installation</li>
+                <li>Crack injection</li>
+            </ul>
+        </div>
 
-aluminum_html = create_sidebar_page(
-    "Aluminum & Glass",
-    "fas fa-border-all",
-    "aluminum",
-    aluminum_cats,
-    ["IMG-20260222-WA0020.jpg", "IMG-20260222-WA0048.jpg", "IMG-20260222-WA0049.jpg", "IMG-20260222-WA0050.jpg", "IMG-20260222-WA0051.jpg", "IMG-20260222-WA0052.jpg"]
-)
+        <div class="service-card">
+            <div class="service-icon">🚿</div>
+            <h3>Bathroom Waterproofing</h3>
+            <p>Wet area protection</p>
+            <ul class="service-list">
+                <li>Shower waterproofing</li>
+                <li>Balcony waterproofing</li>
+                <li>Tile bed sealing</li>
+                <li>Leak detection</li>
+                <li>Re-grouting services</li>
+            </ul>
+        </div>
 
-# Plumbing data
-plumbing_cats = [
-    {"id": "plumbing", "name": "General Plumbing", "icon": "fas fa-faucet", "items": ["Leak detection & repair", "Burst pipe repairs", "Tap & mixer repairs", "Toilet repairs & installation", "Sink & basin installation", "Water pressure issues", "Pipe replacement"]},
-    {"id": "geyser", "name": "Geyser Services", "icon": "fas fa-fire", "items": ["Geyser installation", "Geyser repairs", "Element replacement", "Thermostat repairs", "Solar geyser conversions", "Heat pump installation", "Geyser maintenance"]},
-    {"id": "drainage", "name": "Drainage", "icon": "fas fa-broom", "items": ["Blocked drain clearing", "High-pressure jetting", "Drain camera inspection", "Drain repairs", "Sewer line repairs", "Storm water drainage", "Grease trap cleaning"]},
-    {"id": "electrical", "name": "Electrical Services", "icon": "fas fa-bolt", "items": ["Electrical repairs", "Wiring & rewiring", "Circuit breaker repairs", "Lighting installation", "Power point installation", "Electrical compliance", "Emergency electrical"]},
-    {"id": "cctv", "name": "CCTV & Security", "icon": "fas fa-video", "items": ["CCTV camera installation", "IP camera systems", "Remote viewing setup", "Night vision cameras", "DVR/NVR installation", "Camera maintenance", "Security assessments"]},
-    {"id": "alarms", "name": "Alarm Systems", "icon": "fas fa-shield-alt", "items": ["Alarm installation", "Motion sensors", "Door/window sensors", "24/7 monitoring setup", "Electric fencing", "Intercom systems", "Access control"]}
-]
+        <div class="service-card">
+            <div class="service-icon">🧱</div>
+            <h3>Damp Proofing</h3>
+            <p>Rising damp solutions</p>
+            <ul class="service-list">
+                <li>Damp course installation</li>
+                <li>Chemical injection</li>
+                <li>Plaster removal & replacement</li>
+                <li>Wall sealing</li>
+                <li>Moisture barrier installation</li>
+            </ul>
+        </div>
 
-plumbing_html = create_sidebar_page(
-    "Plumbing & Electrical",
-    "fas fa-faucet",
-    "plumbing",
-    plumbing_cats,
-    ["cd68c37c-4aa2-4ac8-9bf8-36201af75b7f.jpg", "ezgif-1955095e08db5333.png", "ezgif-20eb2ee4fe024711.png", "IMG-20260222-WA0054.jpg", "IMG-20260222-WA0055.jpg", "IMG-20260222-WA0056.jpg"]
-)
+        <div class="service-card">
+            <div class="service-icon">🔍</div>
+            <h3>Leak Detection</h3>
+            <p>Find hidden leaks fast</p>
+            <ul class="service-list">
+                <li>Thermal imaging</li>
+                <li>Moisture meters</li>
+                <li>Pressure testing</li>
+                <li>Acoustic detection</li>
+                <li>Comprehensive reporting</li>
+            </ul>
+        </div>
 
-print("✅ ALL 5 PAGES COMPLETE:")
-print("1. index.html - Homepage with slideshow")
-print("2. construction.html - Sidebar layout")
-print("3. waterproofing.html - Sidebar layout")
-print("4. aluminum.html - Sidebar layout")
-print("5. plumbing.html - Sidebar layout")
-print("\nAll features:")
-print("- Full-width glowing logo")
-print("- Glowing navigation (all pages)")
-print("- Sidebar layout (category pages)")
-print("- Glowing borders on categories")
-print("- Photo galleries")
-print("- Arise chatbot (homepage)")
-print("- Auto-correct spelling")
-print("- Client data capture")
-print("- Mobile responsive")
+        <div class="service-card">
+            <div class="service-icon">🛡️</div>
+            <h3>Preventative Solutions</h3>
+            <p>Stop problems before they start</p>
+            <ul class="service-list">
+                <li>Protective coatings</li>
+                <li>Sealant applications</li>
+                <li>Maintenance programs</li>
+                <li>Annual inspections</li>
+                <li>Waterproofing audits</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 30px; color: #00d4ff;">Stop Water Damage Today!</h2>
+            <p style="margin-bottom: 30px; color: #c0d4e8;">Free assessment and quote. Emergency services available 24/7.</p>
+            <a href="https://wa.me/27744872602" class="cta-button" target="_blank">📱 WhatsApp Emergency Line</a>
+            <a href="mailto:starflowgroup@gmail.com" class="cta-button">📧 Get Free Quote</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>StarFlow Group</h3>
+            <p>Professional Property & Technology Solutions</p>
+            <p style="margin-top: 20px; color: #00d4ff;">📱 +27 74 487 2602 | 📧 starflowgroup@gmail.com</p>
+            <p style="margin-top: 10px;">Serving Johannesburg | Pretoria | Sandton | All Gauteng</p>
+        </div>
+    </footer>
+</body>
+</html>
