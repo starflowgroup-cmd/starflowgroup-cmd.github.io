@@ -1,78 +1,419 @@
-<!DOCTYPE html>
+
+# Create sidebar template for category pages
+
+def create_sidebar_page(title, icon, filename, categories_data, gallery_images):
+    # Build sidebar categories
+    sidebar_html = ""
+    for i, cat in enumerate(categories_data):
+        active_class = "active" if i == 0 else ""
+        sidebar_html += f'''
+            <div class="category-item {active_class}" onclick="showService('{cat['id']}', this)">
+                <i class="{cat['icon']}"></i>
+                <h3>{cat['name']}</h3>
+            </div>'''
+    
+    # Build service content panels
+    content_html = ""
+    for i, cat in enumerate(categories_data):
+        active_class = "active" if i == 0 else ""
+        items_html = ""
+        for item in cat['items']:
+            items_html += f'<li><i class="fas fa-check-circle"></i> {item}</li>\n                    '
+        
+        content_html += f'''
+            <div id="{cat['id']}" class="service-content {active_class}">
+                <h2><i class="{cat['icon']}"></i> {cat['name']}</h2>
+                <ul>
+                    {items_html}
+                </ul>
+            </div>'''
+    
+    # Build gallery
+    gallery_html = ""
+    for img in gallery_images:
+        gallery_html += f'<div class="gallery-item"><img src="{img}" alt="Work"></div>\n            '
+    
+    return f'''<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Construction | StarFlow Group</title>
+    <title>{title} | StarFlow Group</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #0a1628; color: #fff; }
-        .logo-container { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #0a1628 0%, #1e3c72 100%); }
-        .logo-container img { max-width: 300px; width: 100%; height: auto; }
-        nav { background: #1e3c72; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
-        nav a { color: #fff; text-decoration: none; margin: 0 12px; font-size: 14px; padding: 8px 15px; border-radius: 20px; transition: all 0.3s; }
-        nav a:hover, nav a.active { background: #ffd700; color: #0a1628; }
-        .page-header { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
-        .page-header i { font-size: 50px; color: #ffd700; margin-bottom: 20px; }
-        .page-header h1 { font-size: 32px; margin-bottom: 10px; }
-        .content { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-box { background: rgba(255,255,255,0.05); border: 2px solid #4a90e2; border-radius: 15px; padding: 30px; text-align: center; transition: all 0.3s; }
-        .service-box:hover { border-color: #ffd700; box-shadow: 0 0 25px rgba(255,215,0,0.2); }
-        .service-box i { font-size: 40px; color: #4a90e2; margin-bottom: 15px; }
-        .service-box:hover i { color: #ffd700; }
-        .service-box h3 { font-size: 20px; margin-bottom: 10px; color: #ffd700; }
-        .service-box p { font-size: 14px; opacity: 0.8; }
-        .gallery-section { padding: 40px 20px; background: rgba(0,0,0,0.2); margin-top: 40px; }
-        .section-title { text-align: center; font-size: 28px; margin-bottom: 30px; color: #ffd700; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto; }
-        .gallery-item { aspect-ratio: 4/3; overflow: hidden; border-radius: 10px; border: 2px solid #4a90e2; cursor: pointer; transition: all 0.3s; }
-        .gallery-item:hover { border-color: #ffd700; transform: scale(1.03); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .contact-section { background: #1e3c72; padding: 40px 20px; text-align: center; margin-top: 40px; }
-        .btn { display: inline-block; padding: 15px 35px; background: #ffd700; color: #0a1628; text-decoration: none; border-radius: 30px; font-weight: bold; margin: 10px; }
-        .btn-whatsapp { background: #25d366; color: #fff; }
-        footer { text-align: center; padding: 25px; background: #0a1628; font-size: 14px; opacity: 0.8; }
-        @media (max-width: 768px) { .page-header h1 { font-size: 24px; } .logo-container img { max-width: 250px; } }
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{ font-family: Arial, sans-serif; background: #0a1628; color: #fff; }}
+        
+        /* FULL WIDTH LOGO */
+        .logo-container {{ 
+            width: 100%;
+            background: linear-gradient(180deg, #0a1628 0%, #1e3c72 50%, #0a1628 100%);
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }}
+        .logo-container::before {{
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(74,144,226,0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }}
+        .logo-container img {{ 
+            width: 95%;
+            max-width: 800px;
+            height: auto;
+            filter: drop-shadow(0 0 30px rgba(74, 144, 226, 0.8)) brightness(1.2);
+            position: relative;
+            z-index: 1;
+        }}
+        
+        /* GLOWING NAVIGATION */
+        nav {{ 
+            background: linear-gradient(90deg, #1e3c72, #2a5298, #1e3c72); 
+            padding: 15px; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+        }}
+        nav a {{ 
+            color: #fff; 
+            text-decoration: none; 
+            margin: 0 15px; 
+            font-size: 14px; 
+            padding: 10px 20px; 
+            border-radius: 25px; 
+            transition: all 0.3s;
+            position: relative;
+            display: inline-block;
+        }}
+        nav a::before {{
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #ffd700);
+            border-radius: 25px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+            filter: blur(8px);
+        }}
+        nav a:hover::before,
+        nav a.active::before {{
+            opacity: 0.8;
+            animation: navGlow 2s infinite;
+        }}
+        @keyframes navGlow {{
+            0%, 100% {{ filter: blur(8px) brightness(1); }}
+            50% {{ filter: blur(12px) brightness(1.3); }}
+        }}
+        nav a:hover,
+        nav a.active {{
+            background: rgba(255,215,0,0.2);
+            color: #ffd700;
+            transform: translateY(-2px);
+        }}
+        
+        .page-header {{ 
+            text-align: center; 
+            padding: 40px 20px; 
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); 
+        }}
+        .page-header i {{ 
+            font-size: 50px; 
+            color: #ffd700; 
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px rgba(255,215,0,0.5));
+        }}
+        .page-header h1 {{ font-size: 32px; margin-bottom: 10px; }}
+        
+        /* SPLIT LAYOUT */
+        .split-container {{
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            min-height: 600px;
+        }}
+        
+        /* LEFT SIDEBAR */
+        .category-sidebar {{
+            width: 35%;
+            background: rgba(0,0,0,0.3);
+            padding: 30px 20px;
+            border-right: 3px solid #4a90e2;
+        }}
+        
+        .category-item {{
+            background: rgba(255,255,255,0.05);
+            border: 2px solid #4a90e2;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            cursor: pointer;
+            transition: all 0.4s;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }}
+        
+        /* GLOWING BORDER */
+        .category-item::before {{
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #ffd700);
+            border-radius: 12px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s;
+            filter: blur(12px);
+        }}
+        
+        .category-item:hover::before {{
+            opacity: 0.7;
+            animation: glowPulse 2s infinite;
+        }}
+        
+        .category-item.active::before {{
+            opacity: 0.9;
+            animation: glowPulse 1.5s infinite;
+        }}
+        
+        @keyframes glowPulse {{
+            0%, 100% {{ filter: blur(12px) brightness(1); }}
+            50% {{ filter: blur(18px) brightness(1.4); }}
+        }}
+        
+        .category-item:hover,
+        .category-item.active {{
+            border-color: #ffd700;
+            background: rgba(255,215,0,0.15);
+            transform: translateX(10px);
+            box-shadow: 0 0 30px rgba(255,215,0,0.3);
+        }}
+        
+        .category-item i {{
+            font-size: 24px;
+            color: #4a90e2;
+            margin-right: 15px;
+            width: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }}
+        
+        .category-item:hover i,
+        .category-item.active i {{
+            color: #ffd700;
+            transform: scale(1.2);
+        }}
+        
+        .category-item h3 {{
+            font-size: 16px;
+            color: #fff;
+            transition: all 0.3s;
+        }}
+        
+        .category-item.active h3 {{
+            color: #ffd700;
+        }}
+        
+        /* RIGHT CONTENT */
+        .service-display {{
+            width: 65%;
+            padding: 40px;
+            background: rgba(255,255,255,0.02);
+        }}
+        
+        .service-content {{
+            display: none;
+            animation: fadeIn 0.5s;
+        }}
+        
+        .service-content.active {{
+            display: block;
+        }}
+        
+        @keyframes fadeIn {{
+            from {{ opacity: 0; transform: translateX(30px); }}
+            to {{ opacity: 1; transform: translateX(0); }}
+        }}
+        
+        .service-content h2 {{
+            color: #ffd700;
+            font-size: 28px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ffd700;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }}
+        
+        .service-content h2 i {{
+            filter: drop-shadow(0 0 10px rgba(255,215,0,0.5));
+        }}
+        
+        .service-content ul {{
+            list-style: none;
+        }}
+        
+        .service-content li {{
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            transition: all 0.3s;
+        }}
+        
+        .service-content li:hover {{
+            padding-left: 15px;
+            color: #ffd700;
+            background: rgba(255,215,0,0.05);
+            border-radius: 8px;
+        }}
+        
+        .service-content li i {{
+            color: #25d366;
+            margin-right: 15px;
+            font-size: 18px;
+        }}
+        
+        /* GALLERY */
+        .gallery-section {{ padding: 50px 20px; background: rgba(0,0,0,0.2); }}
+        .section-title {{ text-align: center; font-size: 32px; margin-bottom: 30px; color: #ffd700; }}
+        .gallery-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }}
+        .gallery-item {{ aspect-ratio: 4/3; overflow: hidden; border-radius: 12px; border: 2px solid #4a90e2; transition: all 0.3s; position: relative; }}
+        .gallery-item::before {{
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, transparent, #ffd700);
+            border-radius: 12px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+            filter: blur(8px);
+        }}
+        .gallery-item:hover::before {{ opacity: 0.6; }}
+        .gallery-item:hover {{ border-color: #ffd700; transform: scale(1.05); box-shadow: 0 0 25px rgba(255,215,0,0.4); z-index: 1; }}
+        .gallery-item img {{ width: 100%; height: 100%; object-fit: cover; }}
+        
+        /* CONTACT */
+        .contact-section {{ background: linear-gradient(90deg, #1e3c72, #2a5298, #1e3c72); padding: 50px 20px; text-align: center; }}
+        .btn {{ 
+            display: inline-block; 
+            padding: 15px 40px; 
+            background: #ffd700; 
+            color: #0a1628; 
+            text-decoration: none; 
+            border-radius: 30px; 
+            font-weight: bold; 
+            margin: 10px; 
+            transition: all 0.3s;
+            position: relative;
+        }}
+        .btn::before {{
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #ffd700);
+            border-radius: 30px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s;
+            filter: blur(10px);
+        }}
+        .btn:hover::before {{ opacity: 0.8; }}
+        .btn:hover {{ transform: scale(1.05); box-shadow: 0 0 30px rgba(255,215,0,0.6); }}
+        .btn-whatsapp {{ background: #25d366; color: #fff; }}
+        
+        footer {{ text-align: center; padding: 30px; background: #0a1628; font-size: 14px; opacity: 0.8; }}
+        
+        /* MOBILE */
+        @media (max-width: 768px) {{ 
+            .split-container {{ flex-direction: column; }}
+            .category-sidebar {{ width: 100%; border-right: none; border-bottom: 3px solid #4a90e2; }}
+            .service-display {{ width: 100%; padding: 20px; }}
+            .logo-container img {{ width: 100%; }}
+            .page-header h1 {{ font-size: 24px; }}
+            .category-item:hover {{ transform: translateX(5px); }}
+        }}
     </style>
 </head>
 <body>
-    <div class="logo-container"><a href="index.html"><img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group"></a></div>
+    <div class="logo-container">
+        <a href="index.html"><img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group"></a>
+    </div>
+    
     <nav>
         <a href="index.html">Home</a>
-        <a href="construction.html" class="active">Construction</a>
-        <a href="waterproofing.html">Waterproofing</a>
-        <a href="aluminum.html">Aluminum</a>
-        <a href="plumbing.html">Plumbing</a>
+        <a href="construction.html"{' class="active"' if filename == 'construction' else ''}>Construction</a>
+        <a href="waterproofing.html"{' class="active"' if filename == 'waterproofing' else ''}>Waterproofing</a>
+        <a href="aluminum.html"{' class="active"' if filename == 'aluminum' else ''}>Aluminum</a>
+        <a href="plumbing.html"{' class="active"' if filename == 'plumbing' else ''}>Plumbing</a>
     </nav>
-    <div class="page-header"><i class="fas fa-hard-hat"></i><h1>Construction & Home Improvements</h1></div>
-    <div class="content">
-        <div class="services-grid">
-            <div class="service-box"><i class="fas fa-home"></i><h3>Building & Construction</h3><p>New builds, extensions, and structural work</p></div>
-            <div class="service-box"><i class="fas fa-tools"></i><h3>Renovations</h3><p>Kitchen, bathroom, and full home renovations</p></div>
-            <div class="service-box"><i class="fas fa-border-style"></i><h3>Tiling</h3><p>Floor and wall tiling with all materials</p></div>
-            <div class="service-box"><i class="fas fa-paint-roller"></i><h3>Painting</h3><p>Interior and exterior painting</p></div>
-            <div class="service-box"><i class="fas fa-th-large"></i><h3>Drywall & Ceilings</h3><p>Partitioning and ceiling installation</p></div>
-            <div class="service-box"><i class="fas fa-hammer"></i><h3>General Repairs</h3><p>All home repairs and maintenance</p></div>
+    
+    <div class="page-header">
+        <i class="{icon}"></i>
+        <h1>{title}</h1>
+    </div>
+    
+    <div class="split-container">
+        <div class="category-sidebar">
+            {sidebar_html}
+        </div>
+        
+        <div class="service-display">
+            {content_html}
         </div>
     </div>
+    
     <section class="gallery-section">
-        <h2 class="section-title">Our Construction Work</h2>
+        <h2 class="section-title">Our {title.split('&')[0].strip()} Work</h2>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="IMG-20260222-WA0061.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0062.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0063.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0064.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0065.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0011.jpg" alt="Work"></div>
+            {gallery_html}
         </div>
     </section>
+    
     <div class="contact-section">
-        <h2 style="color: #ffd700; margin-bottom: 20px;">Get a Free Quote</h2>
-        <a href="https://wa.me/27744872602" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <h2 style="color: #ffd700; margin-bottom: 25px; font-size: 28px;">Get a Free Quote</h2>
+        <a href="https://wa.me/27744872602" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a>
         <a href="tel:+27744872602" class="btn"><i class="fas fa-phone"></i> Call Now</a>
     </div>
+    
     <footer><p>&copy; 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p></footer>
+    
+    <script>
+        function showService(serviceId, element) {{
+            document.querySelectorAll('.category-item').forEach(item => item.classList.remove('active'));
+            element.classList.add('active');
+            document.querySelectorAll('.service-content').forEach(content => content.classList.remove('active'));
+            document.getElementById(serviceId).classList.add('active');
+        }}
+    </script>
 </body>
-</html>
+</html>'''
+
+# Construction data
+construction_cats = [
+    {"id": "building", "name": "Building & Construction", "icon": "fas fa-home", "items": ["New building construction", "House extensions & additions", "Boundary walls & fencing", "Concrete slabs & foundations", "Structural alterations", "Garage construction", "Paving & driveways"]},
+    {"id": "renovations", "name": "Home Renovations", "icon": "fas fa-tools", "items": ["Kitchen renovations", "Bathroom renovations", "Full home makeovers", "Bedroom upgrades", "Lounge & dining renovations", "Outdoor entertainment areas", "Granny flat conversions"]},
+    {"id": "tiling", "name": "Tiling", "icon": "fas fa-border-style", "items": ["Floor tiling (all rooms)", "Wall tiling", "Ceramic tiles", "Porcelain tiles", "Natural stone tiles", "Mosaic tiles", "Tile repairs & replacement"]},
+    {"id": "painting", "name": "Painting", "icon": "fas fa-paint-roller", "items": ["Interior painting", "Exterior painting", "Roof painting", "Waterproofing paint", "Texture coatings", "Wood varnishing", "Color consultation"]},
+    {"id": "ceilings", "name": "Drywall & Ceilings", "icon": "fas fa-th-large", "items": ["Drywall partitioning", "Suspended ceilings", "Bulkhead ceilings", "Decorative ceilings", "Office partitioning", "Soundproofing", "Ceiling repairs"]},
+    {"id": "repairs", "name": "General Repairs", "icon": "fas fa-hammer", "items": ["Door repairs & hanging", "Window repairs", "Lock installation", "Cabinet repairs", "Skirting & trim", "General maintenance", "Handyman services"]}
+]
+
+construction_html = create_sidebar_page(
+    "Construction & Home Improvements",
+    "fas fa-hard-hat",
+    "construction",
+    construction_cats,
+    ["IMG-20260222-WA0061.jpg", "IMG-20260222-WA0062.jpg", "IMG-20260222-WA0063.jpg", "IMG-20260222-WA0064.jpg", "IMG-20260222-WA0065.jpg", "IMG-20260222-WA0011.jpg"]
+)
+
+print("✅ CONSTRUCTION.HTML COMPLETE with sidebar layout")
