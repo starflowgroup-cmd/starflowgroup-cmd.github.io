@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Repair | StarFlow Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(180deg, #0a1628 0%, #0d1f3c 50%, #0a1628 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+        }
+
+        .nav-logo {
+            height: 40px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #00d4ff;
+        }
+
+        /* Category Header */
+        .category-header {
+            text-align: center;
+            padding: 120px 20px 60px;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+        }
+
+        .category-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 30px;
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 100, 200, 0.3));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            border: 3px solid rgba(0, 212, 255, 0.4);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .category-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .category-header p {
+            font-size: 1.1rem;
+            color: #a0c4d9;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Services List */
+        .services-list {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-list h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #00d4ff;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 12px;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-item:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: rgba(0, 212, 255, 0.6);
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .service-item::before {
+            content: '⚡';
+            color: #00d4ff;
+            font-size: 1.2rem;
+        }
+
+        .service-item span {
+            color: #c0d4e8;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: #00d4ff;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 212, 255, 0.6);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #7a9ab5;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #00d4ff;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        footer p {
+            color: #7a9ab5;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        footer .contact-info {
+            color: #00d4ff;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .category-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .category-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+<base target="_blank">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html"><img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow" class="nav-logo" onerror="this.style.display='none'"></a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Category Header -->
+    <section class="category-header">
+        <div class="category-icon">📺</div>
+        <h1>Electronics Repair</h1>
+        <p>Expert service, repair & support for all household appliances, entertainment systems & electronic devices.</p>
+    </section>
+
+    <!-- Services List -->
+    <section class="services-list">
+        <h2>Our Electronics Repair Services</h2>
+        <div class="services-grid">
+            <div class="service-item"><span>TV Repair (LED, LCD, Plasma, Smart TVs)</span></div>
+            <div class="service-item"><span>Refrigerator & Freezer Repairs</span></div>
+            <div class="service-item"><span>Washing Machine & Dryer Repairs</span></div>
+            <div class="service-item"><span>Dishwasher Repairs</span></div>
+            <div class="service-item"><span>Microwave Oven Repairs</span></div>
+            <div class="service-item"><span>Air Conditioner Service & Repair</span></div>
+            <div class="service-item"><span>Home Theater System Setup</span></div>
+            <div class="service-item"><span>Computer & Laptop Repairs</span></div>
+            <div class="service-item"><span>Small Appliance Repairs</span></div>
+            <div class="service-item"><span>Audio System Repairs</span></div>
+            <div class="service-item"><span>Gaming Console Repairs</span></div>
+            <div class="service-item"><span>Electronic Device Diagnostics</span></div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Ready to Get Started?</h2>
+        <a href="https://wa.me/27744872602" class="cta-button" target="_blank">WhatsApp Us</a>
+        <a href="tel:+27744872602" class="cta-button">Call Now</a>
+        <br>
+        <a href="index.html" class="back-link">← Back to Home</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Johannesburg | Pretoria | Sandton, Gauteng</p>
+        <p class="contact-info">+27 74 487 2602 | starflowgroup@gmail.com</p>
+    </footer>
+</body>
+</html>
