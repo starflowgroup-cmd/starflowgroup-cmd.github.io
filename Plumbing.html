@@ -4,177 +4,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plumbing & Electrical | StarFlow Group</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Open Sans', sans-serif; background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #16213e 100%); color: #ffffff; line-height: 1.6; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        header { background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid rgba(0, 212, 255, 0.3); }
-        .header-content { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
-        .logo img { height: 50px; }
-        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: #00d4ff; }
-        .back-btn { background: rgba(0, 212, 255, 0.1); border: 2px solid #00d4ff; color: #00d4ff; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
-        .back-btn:hover { background: rgba(0, 212, 255, 0.3); transform: translateY(-2px); }
-        .hero { margin-top: 100px; padding: 60px 20px; text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, transparent 50%); }
-        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #00d4ff; margin-bottom: 20px; }
-        .services-section { padding: 60px 20px; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 20px; padding: 40px; text-align: center; transition: all 0.3s ease; }
-        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3); border-color: #00d4ff; }
-        .service-icon { font-size: 3.5rem; margin-bottom: 20px; }
-        .service-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: #00d4ff; margin-bottom: 15px; }
-        .service-list { list-style: none; margin-top: 20px; text-align: left; }
-        .service-list li { padding: 10px; border-bottom: 1px solid rgba(0, 212, 255, 0.2); color: #c0d4e8; padding-left: 25px; position: relative; }
-        .service-list li:before { content: "✓"; position: absolute; left: 0; color: #00d4ff; font-weight: bold; }
-        .service-list li:last-child { border-bottom: none; }
-        .cta-section { padding: 60px 20px; text-align: center; background: rgba(0, 0, 0, 0.3); }
-        .cta-button { display: inline-block; background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); color: #000000; padding: 18px 50px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin: 10px; transition: all 0.3s ease; }
-        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4); }
-        .emergency-banner { background: linear-gradient(135deg, #ff3366 0%, #cc0033 100%); color: #ffffff; padding: 30px; border-radius: 15px; margin: 40px auto; max-width: 800px; text-align: center; }
-        .emergency-banner h3 { font-family: 'Montserrat', sans-serif; font-size: 1.8rem; margin-bottom: 15px; }
-        .emergency-banner p { font-size: 1.2rem; margin-bottom: 20px; }
-        .emergency-btn { display: inline-block; background: #ffffff; color: #ff3366; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.2rem; transition: all 0.3s ease; }
-        .emergency-btn:hover { transform: scale(1.05); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
-        footer { background: rgba(0, 0, 0, 0.5); padding: 40px 20px; text-align: center; border-top: 2px solid rgba(0, 212, 255, 0.3); }
+        body { font-family: Arial, sans-serif; background: #0a1628; color: #fff; }
+        .logo-container { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #0a1628 0%, #1e3c72 100%); }
+        .logo-container img { max-width: 300px; width: 100%; height: auto; }
+        nav { background: #1e3c72; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
+        nav a { color: #fff; text-decoration: none; margin: 0 12px; font-size: 14px; padding: 8px 15px; border-radius: 20px; transition: all 0.3s; }
+        nav a:hover, nav a.active { background: #ffd700; color: #0a1628; }
+        .page-header { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+        .page-header i { font-size: 50px; color: #ffd700; margin-bottom: 20px; }
+        .page-header h1 { font-size: 32px; margin-bottom: 10px; }
+        .content { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .service-box { background: rgba(255,255,255,0.05); border: 2px solid #4a90e2; border-radius: 15px; padding: 30px; text-align: center; transition: all 0.3s; }
+        .service-box:hover { border-color: #ffd700; box-shadow: 0 0 25px rgba(255,215,0,0.2); }
+        .service-box i { font-size: 40px; color: #4a90e2; margin-bottom: 15px; }
+        .service-box:hover i { color: #ffd700; }
+        .service-box h3 { font-size: 20px; margin-bottom: 10px; color: #ffd700; }
+        .service-box p { font-size: 14px; opacity: 0.8; }
+        .gallery-section { padding: 40px 20px; background: rgba(0,0,0,0.2); margin-top: 40px; }
+        .section-title { text-align: center; font-size: 28px; margin-bottom: 30px; color: #ffd700; }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto; }
+        .gallery-item { aspect-ratio: 4/3; overflow: hidden; border-radius: 10px; border: 2px solid #4a90e2; cursor: pointer; transition: all 0.3s; }
+        .gallery-item:hover { border-color: #ffd700; transform: scale(1.03); }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+        .contact-section { background: #1e3c72; padding: 40px 20px; text-align: center; margin-top: 40px; }
+        .btn { display: inline-block; padding: 15px 35px; background: #ffd700; color: #0a1628; text-decoration: none; border-radius: 30px; font-weight: bold; margin: 10px; }
+        .btn-whatsapp { background: #25d366; color: #fff; }
+        footer { text-align: center; padding: 25px; background: #0a1628; font-size: 14px; opacity: 0.8; }
+        @media (max-width: 768px) { .page-header h1 { font-size: 24px; } .logo-container img { max-width: 250px; } }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <a href="index.html" class="logo">
-                <img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group">
-                <span class="logo-text">StarFlow Group</span>
-            </a>
-            <a href="index.html" class="back-btn">← Back to Home</a>
-        </div>
-    </header>
-
-    <section class="hero">
-        <div class="container">
-            <h1>🔧 Plumbing & Electrical Services</h1>
-            <p style="font-size: 1.2rem; color: #c0d4e8; max-width: 800px; margin: 0 auto;">Professional plumbing and electrical services for homes and businesses. Licensed, insured, and available 24/7 for emergencies.</p>
-        </div>
-    </section>
-
-    <div class="container">
-        <div class="emergency-banner">
-            <h3>🚨 24/7 Emergency Services</h3>
-            <p>Plumbing burst? Power outage? Electrical fault?<br>We're available around the clock for urgent repairs!</p>
-            <a href="https://wa.me/27744872602" class="emergency-btn" target="_blank">📞 Call Emergency Line</a>
+    <div class="logo-container"><a href="index.html"><img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group"></a></div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="construction.html">Construction</a>
+        <a href="waterproofing.html">Waterproofing</a>
+        <a href="aluminum.html">Aluminum</a>
+        <a href="plumbing.html" class="active">Plumbing</a>
+    </nav>
+    <div class="page-header"><i class="fas fa-faucet"></i><h1>Plumbing & Electrical</h1></div>
+    <div class="content">
+        <div class="services-grid">
+            <div class="service-box"><i class="fas fa-faucet"></i><h3>Plumbing Repairs</h3><p>Leaks, bursts, all plumbing work</p></div>
+            <div class="service-box"><i class="fas fa-fire"></i><h3>Geyser Services</h3><p>Installation and repairs</p></div>
+            <div class="service-box"><i class="fas fa-bolt"></i><h3>Electrical</h3><p>Wiring and installations</p></div>
+            <div class="service-box"><i class="fas fa-video"></i><h3>CCTV</h3><p>Security cameras</p></div>
+            <div class="service-box"><i class="fas fa-shield-alt"></i><h3>Security</h3><p>Alarms and access control</p></div>
+            <div class="service-box"><i class="fas fa-broom"></i><h3>Drain Cleaning</h3><p>Blocked drain clearing</p></div>
         </div>
     </div>
-
-    <section class="services-section container">
-        <h2 style="text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 40px; color: #00d4ff;">Plumbing Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">🚿</div>
-                <h3>General Plumbing</h3>
-                <p>All plumbing repairs and installations</p>
-                <ul class="service-list">
-                    <li>Leak detection & repair</li>
-                    <li>Tap & mixer repairs</li>
-                    <li>Toilet repairs & installation</li>
-                    <li>Sink & basin installation</li>
-                    <li>Pipe repairs & replacement</li>
-                    <li>Drain cleaning & unblocking</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🔥</div>
-                <h3>Geyser Services</h3>
-                <p>Complete geyser solutions</p>
-                <ul class="service-list">
-                    <li>Geyser installation</li>
-                    <li>Geyser repairs</li>
-                    <li>Element & thermostat replacement</li>
-                    <li>Pressure valve replacement</li>
-                    <li>Solar geyser conversion</li>
-                    <li>Geyser maintenance</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🏠</div>
-                <h3>Bathroom Plumbing</h3>
-                <p>Full bathroom solutions</p>
-                <ul class="service-list">
-                    <li>Shower installation</li>
-                    <li>Bath installation</li>
-                    <li>Bathroom renovations</li>
-                    <li>Waterproofing</li>
-                    <li>Plumbing rough-in</li>
-                    <li>Fixture upgrades</li>
-                </ul>
-            </div>
+    <section class="gallery-section">
+        <h2 class="section-title">Our Plumbing Work</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item"><img src="cd68c37c-4aa2-4ac8-9bf8-36201af75b7f.jpg" alt="Work"></div>
+            <div class="gallery-item"><img src="ezgif-1955095e08db5333.png" alt="Work"></div>
+            <div class="gallery-item"><img src="ezgif-20eb2ee4fe024711.png" alt="Work"></div>
+            <div class="gallery-item"><img src="IMG-20260222-WA0054.jpg" alt="Work"></div>
+            <div class="gallery-item"><img src="IMG-20260222-WA0055.jpg" alt="Work"></div>
+            <div class="gallery-item"><img src="IMG-20260222-WA0056.jpg" alt="Work"></div>
         </div>
     </section>
-
-    <section class="services-section container" style="background: rgba(0,0,0,0.2); margin: 0 -20px; padding: 60px 40px;">
-        <h2 style="text-align: center; font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 40px; color: #00d4ff;">Electrical Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">⚡</div>
-                <h3>General Electrical</h3>
-                <p>Safe, certified electrical work</p>
-                <ul class="service-list">
-                    <li>Electrical repairs</li>
-                    <li>Circuit breaker upgrades</li>
-                    <li>Lighting installation</li>
-                    <li>Socket & switch installation</li>
-                    <li>Fault finding</li>
-                    <li>Electrical certificates (COC)</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🏘️</div>
-                <h3>Home Electrical</h3>
-                <p>Residential electrical solutions</p>
-                <ul class="service-list">
-                    <li>House rewiring</li>
-                    <li>Distribution board upgrades</li>
-                    <li>Outdoor lighting</li>
-                    <li>Security lighting</li>
-                    <li>Generator connections</li>
-                    <li>Surge protection</li>
-                </ul>
-            </div>
-
-            <div class="service-card">
-                <div class="service-icon">🏢</div>
-                <h3>Commercial Electrical</h3>
-                <p>Business electrical services</p>
-                <ul class="service-list">
-                    <li>Office wiring</li>
-                    <li>Shop fitting electrics</li>
-                    <li>Data cabling</li>
-                    <li>Emergency lighting</li>
-                    <li>Maintenance contracts</li>
-                    <li>Electrical compliance</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="container">
-            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 30px; color: #00d4ff;">Need a Plumber or Electrician?</h2>
-            <p style="margin-bottom: 30px; color: #c0d4e8;">Free call-out and assessment. Quality workmanship guaranteed.</p>
-            <a href="https://wa.me/27744872602" class="cta-button" target="_blank">📱 WhatsApp Now</a>
-            <a href="mailto:starflowgroup@gmail.com" class="cta-button">📧 Email Us</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <h3>StarFlow Group</h3>
-            <p>Professional Property & Technology Solutions</p>
-            <p style="margin-top: 20px; color: #00d4ff;">📱 +27 74 487 2602 | 📧 starflowgroup@gmail.com</p>
-            <p style="margin-top: 10px;">Serving Johannesburg | Pretoria | Sandton | All Gauteng</p>
-        </div>
-    </footer>
+    <div class="contact-section">
+        <h2 style="color: #ffd700; margin-bottom: 20px;">Get a Free Quote</h2>
+        <a href="https://wa.me/27744872602" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="tel:+27744872602" class="btn"><i class="fas fa-phone"></i> Call Now</a>
+    </div>
+    <footer><p>&copy; 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p></footer>
 </body>
 </html>
