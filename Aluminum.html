@@ -3,76 +3,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aluminum & Glass | StarFlow Group</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Aluminum Works & Glass | StarFlow Group</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Arial, sans-serif; background: #0a1628; color: #fff; }
-        .logo-container { text-align: center; padding: 30px 20px; background: linear-gradient(180deg, #0a1628 0%, #1e3c72 100%); }
-        .logo-container img { max-width: 300px; width: 100%; height: auto; }
-        nav { background: #1e3c72; padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
-        nav a { color: #fff; text-decoration: none; margin: 0 12px; font-size: 14px; padding: 8px 15px; border-radius: 20px; transition: all 0.3s; }
-        nav a:hover, nav a.active { background: #ffd700; color: #0a1628; }
-        .page-header { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
-        .page-header i { font-size: 50px; color: #ffd700; margin-bottom: 20px; }
-        .page-header h1 { font-size: 32px; margin-bottom: 10px; }
-        .content { padding: 50px 20px; max-width: 1000px; margin: 0 auto; }
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .service-box { background: rgba(255,255,255,0.05); border: 2px solid #4a90e2; border-radius: 15px; padding: 30px; text-align: center; transition: all 0.3s; }
-        .service-box:hover { border-color: #ffd700; box-shadow: 0 0 25px rgba(255,215,0,0.2); }
-        .service-box i { font-size: 40px; color: #4a90e2; margin-bottom: 15px; }
-        .service-box:hover i { color: #ffd700; }
-        .service-box h3 { font-size: 20px; margin-bottom: 10px; color: #ffd700; }
-        .service-box p { font-size: 14px; opacity: 0.8; }
-        .gallery-section { padding: 40px 20px; background: rgba(0,0,0,0.2); margin-top: 40px; }
-        .section-title { text-align: center; font-size: 28px; margin-bottom: 30px; color: #ffd700; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; max-width: 1000px; margin: 0 auto; }
-        .gallery-item { aspect-ratio: 4/3; overflow: hidden; border-radius: 10px; border: 2px solid #4a90e2; cursor: pointer; transition: all 0.3s; }
-        .gallery-item:hover { border-color: #ffd700; transform: scale(1.03); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
-        .contact-section { background: #1e3c72; padding: 40px 20px; text-align: center; margin-top: 40px; }
-        .btn { display: inline-block; padding: 15px 35px; background: #ffd700; color: #0a1628; text-decoration: none; border-radius: 30px; font-weight: bold; margin: 10px; }
-        .btn-whatsapp { background: #25d366; color: #fff; }
-        footer { text-align: center; padding: 25px; background: #0a1628; font-size: 14px; opacity: 0.8; }
-        @media (max-width: 768px) { .page-header h1 { font-size: 24px; } .logo-container img { max-width: 250px; } }
+        body { font-family: 'Open Sans', sans-serif; background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #16213e 100%); color: #ffffff; line-height: 1.6; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        header { background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); padding: 20px 0; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 2px solid rgba(0, 212, 255, 0.3); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 15px; text-decoration: none; }
+        .logo img { height: 50px; }
+        .logo-text { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; color: #00d4ff; }
+        .back-btn { background: rgba(0, 212, 255, 0.1); border: 2px solid #00d4ff; color: #00d4ff; padding: 10px 25px; border-radius: 25px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; }
+        .back-btn:hover { background: rgba(0, 212, 255, 0.3); transform: translateY(-2px); }
+        .hero { margin-top: 100px; padding: 60px 20px; text-align: center; background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, transparent 50%); }
+        .hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; color: #00d4ff; margin-bottom: 20px; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; padding: 60px 20px; }
+        .service-card { background: rgba(255, 255, 255, 0.05); border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 20px; padding: 40px; text-align: center; transition: all 0.3s ease; }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0, 212, 255, 0.3); border-color: #00d4ff; }
+        .service-icon { font-size: 3.5rem; margin-bottom: 20px; }
+        .service-card h3 { font-family: 'Montserrat', sans-serif; font-size: 1.5rem; color: #00d4ff; margin-bottom: 15px; }
+        .service-list { list-style: none; margin-top: 20px; }
+        .service-list li { padding: 10px; border-bottom: 1px solid rgba(0, 212, 255, 0.2); color: #c0d4e8; }
+        .service-list li:last-child { border-bottom: none; }
+        .cta-section { padding: 60px 20px; text-align: center; background: rgba(0, 0, 0, 0.3); }
+        .cta-button { display: inline-block; background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%); color: #000000; padding: 18px 50px; border-radius: 30px; text-decoration: none; font-weight: 700; font-size: 1.2rem; margin: 10px; transition: all 0.3s ease; }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4); }
+        .features-box { background: rgba(0, 212, 255, 0.1); border: 2px solid rgba(0, 212, 255, 0.3); border-radius: 15px; padding: 30px; margin: 40px auto; max-width: 800px; text-align: center; }
+        .features-box h3 { color: #00d4ff; font-family: 'Montserrat', sans-serif; margin-bottom: 20px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .feature-item { padding: 15px; background: rgba(255, 255, 255, 0.05); border-radius: 10px; }
+        footer { background: rgba(0, 0, 0, 0.5); padding: 40px 20px; text-align: center; border-top: 2px solid rgba(0, 212, 255, 0.3); }
     </style>
 </head>
 <body>
-    <div class="logo-container"><a href="index.html"><img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group"></a></div>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="construction.html">Construction</a>
-        <a href="waterproofing.html">Waterproofing</a>
-        <a href="aluminum.html" class="active">Aluminum</a>
-        <a href="plumbing.html">Plumbing</a>
-    </nav>
-    <div class="page-header"><i class="fas fa-border-all"></i><h1>Aluminum & Glass Solutions</h1></div>
-    <div class="content">
-        <div class="services-grid">
-            <div class="service-box"><i class="fas fa-window-maximize"></i><h3>Windows</h3><p>Custom aluminum windows</p></div>
-            <div class="service-box"><i class="fas fa-door-open"></i><h3>Doors</h3><p>Sliding, hinged, and folding doors</p></div>
-            <div class="service-box"><i class="fas fa-shower"></i><h3>Frameless Showers</h3><p>Glass shower enclosures</p></div>
-            <div class="service-box"><i class="fas fa-grip-lines-vertical"></i><h3>Balustrades</h3><p>Glass railings for stairs</p></div>
-            <div class="service-box"><i class="fas fa-store"></i><h3>Shopfronts</h3><p>Commercial installations</p></div>
-            <div class="service-box"><i class="fas fa-th-large"></i><h3>Mirrors</h3><p>Custom mirrors and splashbacks</p></div>
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <img src="b5ba35c8-692a-4189-88d0-d1d6762ac5d8.png" alt="StarFlow Group">
+                <span class="logo-text">StarFlow Group</span>
+            </a>
+            <a href="index.html" class="back-btn">← Back to Home</a>
         </div>
-    </div>
-    <section class="gallery-section">
-        <h2 class="section-title">Our Aluminum Work</h2>
-        <div class="gallery-grid">
-            <div class="gallery-item"><img src="IMG-20260222-WA0020.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0048.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0049.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0050.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0051.jpg" alt="Work"></div>
-            <div class="gallery-item"><img src="IMG-20260222-WA0052.jpg" alt="Work"></div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🪟 Aluminum Works & Glass</h1>
+            <p style="font-size: 1.2rem; color: #c0d4e8; max-width: 800px; margin: 0 auto;">Premium quality aluminum windows, doors, shopfronts, and glass installations. Custom designs for residential and commercial properties.</p>
         </div>
     </section>
-    <div class="contact-section">
-        <h2 style="color: #ffd700; margin-bottom: 20px;">Get a Free Quote</h2>
-        <a href="https://wa.me/27744872602" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="tel:+27744872602" class="btn"><i class="fas fa-phone"></i> Call Now</a>
+
+    <div class="container">
+        <div class="features-box">
+            <h3>✨ Why Choose Our Aluminum?</h3>
+            <div class="features-grid">
+                <div class="feature-item"><strong>🛡️ Durable</strong><br>Rust & corrosion resistant</div>
+                <div class="feature-item"><strong>🔒 Secure</strong><br>Multi-point locking systems</div>
+                <div class="feature-item"><strong>🌡️ Insulated</strong><br>Thermal break technology</div>
+                <div class="feature-item"><strong>🎨 Custom</strong><br>Any color & design</div>
+            </div>
+        </div>
     </div>
-    <footer><p>&copy; 2025 StarFlow Group | Johannesburg | Pretoria | Sandton</p></footer>
+
+    <section class="services-grid container">
+        <div class="service-card">
+            <div class="service-icon">🪟</div>
+            <h3>Aluminum Windows</h3>
+            <p>Modern window solutions</p>
+            <ul class="service-list">
+                <li>Sliding windows</li>
+                <li>Casement windows</li>
+                <li>Awning windows</li>
+                <li>Fixed picture windows</li>
+                <li>Custom sizes & designs</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🚪</div>
+            <h3>Aluminum Doors</h3>
+            <p>Secure & stylish entryways</p>
+            <ul class="service-list">
+                <li>Sliding doors</li>
+                <li>Folding/stacking doors</li>
+                <li>Hinged doors</li>
+                <li>Security doors</li>
+                <li>Patio doors</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🏪</div>
+            <h3>Shopfronts</h3>
+            <p>Commercial aluminum solutions</p>
+            <ul class="service-list">
+                <li>Retail shopfronts</li>
+                <li>Office partitions</li>
+                <li>Display windows</li>
+                <li>Automatic doors</li>
+                <li>Security shutters</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🪞</div>
+            <h3>Glass Installations</h3>
+            <p>Professional glass work</p>
+            <ul class="service-list">
+                <li>Toughened safety glass</li>
+                <li>Laminated glass</li>
+                <li>Double glazing</li>
+                <li>Mirrors</li>
+                <li>Glass balustrades</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🏠</div>
+            <h3>Partitions</h3>
+            <p>Internal space division</p>
+            <ul class="service-list">
+                <li>Office partitions</li>
+                <li>Room dividers</li>
+                <li>Shower enclosures</li>
+                <li>Glass walls</li>
+                <li>Sliding room dividers</li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <div class="service-icon">🔧</div>
+            <h3>Repairs & Maintenance</h3>
+            <p>Keep your aluminum perfect</p>
+            <ul class="service-list">
+                <li>Handle & lock repairs</li>
+                <li>Track replacement</li>
+                <li>Wheel replacements</li>
+                <li>Seal replacements</li>
+                <li>Glass replacement</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="font-family: 'Montserrat', sans-serif; font-size: 2rem; margin-bottom: 30px; color: #00d4ff;">Get Your Free Quote Today!</h2>
+            <p style="margin-bottom: 30px; color: #c0d4e8;">Custom measurements and professional installation included.</p>
+            <a href="https://wa.me/27744872602" class="cta-button" target="_blank">📱 WhatsApp Photos for Quote</a>
+            <a href="mailto:starflowgroup@gmail.com" class="cta-button">📧 Email Inquiry</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h3>StarFlow Group</h3>
+            <p>Professional Property & Technology Solutions</p>
+            <p style="margin-top: 20px; color: #00d4ff;">📱 +27 74 487 2602 | 📧 starflowgroup@gmail.com</p>
+            <p style="margin-top: 10px;">Serving Johannesburg | Pretoria | Sandton | All Gauteng</p>
+        </div>
+    </footer>
 </body>
 </html>
